@@ -1,0 +1,11 @@
+{
+  "applications": {
+    "CS194App": {
+      "parseAppId": "sBDcY6elVaGx4EHc9HYPNnCry7XOMdjuntIDztLD",
+      "herokuAppId": "917a09f1-1713-456a-afa0-5f2546ae073f"
+    },
+    "_default": {
+      "link": "CS194App"
+    }
+  }
+}
