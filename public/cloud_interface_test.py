@@ -136,7 +136,7 @@ def run():
 	# print result
 
 	#print "here"
-	params = sys.argv[1:]#["house=Grove", "chartType=histogram", "split=type"]sys.argv
+	params = ["house=Grove", "chartType=histogram", "split=type"]#sys.argv[1:]
 	chart_type = get_chart_type(params)
 	#print params
 	if chart_type == "histogram":
