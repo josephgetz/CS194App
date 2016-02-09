@@ -32,7 +32,16 @@
               <li><a href="#">Pie Chart</a></li>
               <li><a href="#">Line Graph</a></li>
             </ul>
-          <button style = "background-color: #98C3F5; font-size: 16px; padding: 5px;"><strong>Go</strong></button>
+          <button style = "background-color: #98C3F5; font-size: 16px; padding: 5px;"><strong>Go</strong>
+            <script>
+              $.ajax({
+                url: "cloud_interface_test.py",
+                success: function(response){
+                  return;//here you do whatever you want with the response variable
+                }
+              });
+            </script>
+          </button>
         </div>
       </div>
       <!--<div class = "row row-centered">
