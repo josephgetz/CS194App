@@ -15,7 +15,7 @@ Parse.Cloud.define("hello", function(request, response) {
 
 
 /*This function will return the total spending amount across all houses (returns as a num)*/
-Parse.Cloud.define("findTotalSpending", function(request, response){
+Parse.Cloud.define("findTotalSpending", function(response){
   var query = new Parse.Query("Transactions");
   query.find({
     success: function(results) {
