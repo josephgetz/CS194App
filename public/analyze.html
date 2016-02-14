@@ -11,10 +11,10 @@
 
 
 	<script>
-	var randomScalingFactor = function(){ return Math.round(Math.random()*100)};
-	//var randomScalingFactor = Parse.Cloud.run('findTotalSpendings').then(function(randomScalingFactor) {
+	//var randomScalingFactor = function(){ return Math.round(Math.random()*100)};
+	var randomScalingFactor = Parse.Cloud.run('findTotalSpendings').then(function(randomScalingFactor) {
 
-	//});
+	});
 
 	var barChartData = {
 		labels : ["January","February","March","April","May","June","July"],
