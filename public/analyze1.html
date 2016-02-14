@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<!-- Bootstrap -->
+	<link href="css/bootstrap.css" rel="stylesheet">
+	<link href="css/bootstrap-theme.css" rel="stylesheet">
+	
+	<title>CS194 Web App - Analyze Data</title>
+</head>
+<body style = "background-color: #FFFFFF; margin: 10px">
+    <h1 style = "text-align: center">Analyze Data</h1>
+    <!--<h5 style = "text-align: center">Jo Getz, Katie-Rose Skelly, Sabelle Smythe, Gus Woythaler</h3>
+    -->
+    <div class = "container">
+      <div class = "row row-centered"> 
+        <div class="col-md-6 col-centered"><a href="index.html"><p style = "text-align: center; padding: 20px"><b>Home</a></div>
+        <div class="col-md-6 col-centered"><a href="upload.html"> <p style = "text-align: center; padding: 20px">Staff: Upload House Finance Spreadsheets</b></p></a></div>
+      </div>
+      <div class = "row row-centered">
+        <p style = "text-align: center">Type name of house (e.g. Grove, 680, Roth) and choose the type of graph and parameters desired.</p>
+      </div>
+      <div class = "row row-centered">
+        <div class = "col-md-12" align = "middle">
+          <input type="text" name="url"/>
+            <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Graph Type
+            <span class="caret"></span></button>
+            <ul class="dropdown-menu" align = "middle">
+              <li><a href="#">Bar Graph</a></li>
+              <li><a href="#">Pie Chart</a></li>
+              <li><a href="#">Line Graph</a></li>
+            </ul>
+          <button style = "background-color: #98C3F5; font-size: 16px; padding: 5px;"><strong>Go</strong>
+            <script>
+              $.ajax({
+                url: "cloud_interface_test.py",
+                success: function(response){
+                  return;//here you do whatever you want with the response variable
+                }
+              });
+            </script>
+          </button>
+        </div>
+      </div>
+      <!--<div class = "row row-centered">
+        <div class = "col-md-12">
+          <div class="dropdown" align = "middle" style = "padding: 15px">
+            <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Graph Type
+            <span class="caret"></span></button>
+            <ul class="dropdown-menu" align = "middle">
+              <li><a href="#">Bar Graph</a></li>
+              <li><a href="#">Pie Chart</a></li>
+              <li><a href="#">Line Graph</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>-->
+      <div class = "row row-centered">
+        <div class = "col-md-6">
+          <p><img src = "http://i.imgur.com/wFiKZCk.png" style = "img img-responsive; width: 500px; padding: 10px;" align = "middle"/></p>
+          <p style = "text-align: center">Grove kitchen vs. social</p>
+        </div>
+        <div class = "col-md-6">
+          <p><img src = "http://i.imgur.com/3oikSsh.png" style = "img img-responsive; width: 500px; padding: 10px;" align = "middle"/></p>
+          <p style = "text-align: center">Grove weekly spending (weeks 1-3) </p>
+        </div>
+      </div>
+      <div class = "row row-centered">
+        <div class = "col-md-6">
+          <p><img src = "http://i.imgur.com/URbK6Qj.png" style = "img img-responsive; width: 550px; padding: 10px;" align = "middle"/></p>
+          <p style = "text-align: center">Roth kitchen vs. social</p>
+        </div>
+        <div class = "col-md-6">
+          <p><img src = "http://i.imgur.com/XSQAIui.png" style = "img img-responsive; width: 500px; padding: 10px;" align = "middle"/></p>
+          <p style = "text-align: center">Roth weekly spending (weeks 1-3)</p>
+        </div>
+      </div>
+    </div>
+
+  	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+  	<script src="js/jquery.js"></script>
+  	<!-- Include all compiled plugins-->
+  	<script src="js/bootstrap.js"></script>
+ </body>
+</html>
