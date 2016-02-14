@@ -12,16 +12,8 @@
 
 	<script>
 	//var randomScalingFactor = function(){ return Math.round(Math.random()*100)};
-	//var randomScalingFactor = 0;
+	var randomScalingFactor = 0;
 	Parse.intialize("sBDcY6elVaGx4EHc9HYPNnCry7XOMdjuntIDztLD", "uvRMOCQbETWKK4wIjJTBQMWAoAv9oKMwPkIZzkiw");
-	var randomScalingFactor = Parse.Cloud.run('hello', {"a":"Adventurous ","b":"Parser"}, {
-		success: function(result){
-			window.alert(result);
-		},
-		error: function(error){
-
-		}
-	});
 
 	/*Parse.Cloud.run('findTotalSpendings',).then(function(randomScalingFactor) {
 		success:
