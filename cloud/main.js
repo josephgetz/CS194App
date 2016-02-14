@@ -203,7 +203,7 @@ Parse.Cloud.define("findHouseTotalPayments", function(request, response){
     }
   });
 });
-
+/*
 Parse.Cloud.beforeSave('TestObject', function(request, response) {
   console.log('Ran beforeSave on objectId: ' + request.object.id);
   response.success();
@@ -220,5 +220,5 @@ Parse.Cloud.beforeDelete('TestObject', function(request, response) {
 
 Parse.Cloud.afterDelete('TestObject', function(request, response) {
   console.log('Ran afterDelete on objectId: ' + request.object.id);
-});
+});*/
 
