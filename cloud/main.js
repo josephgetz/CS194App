@@ -1,8 +1,6 @@
 
 
 var Parse = require('parse-cloud-express').Parse;
-Parse.intialize("sBDcY6elVaGx4EHc9HYPNnCry7XOMdjuntIDztLD", "uvRMOCQbETWKK4wIjJTBQMWAoAv9oKMwPkIZzkiw");
-
 
 Parse.Cloud.define("hello", function(request, response) {
   console.log('Ran cloud function.');
