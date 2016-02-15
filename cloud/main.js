@@ -2,9 +2,6 @@
 
 var Parse = require('parse-cloud-express').Parse;
 
-export PARSE_APP_ID=sBDcY6elVaGx4EHc9HYPNnCry7XOMdjuntIDztLD
-export PARSE_MASTER_KEY=ZSPviSvMU2Pm84GtmPNX6LRPmLa4KfmswwbKLXdT
-export PARSE_WEBHOOK_KEY=hHTxjdTdd2gdx8DakiW5V9AejQgX38gRXmjjNw3B
 
 Parse.Cloud.define("hello", function(request, response) {
   console.log('Ran cloud function.');
