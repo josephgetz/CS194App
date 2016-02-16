@@ -3,7 +3,7 @@
 	<head>
 		<title>Bar Chart</title>
 		<script src="./Chart.js-master/Chart.js"></script>
-		<script type="text/javascript" src="./FindHouseTotals.js">	</script>
+		<script src="./js/require.js"></script>
 	</head>
 	<body>
 		<div style="width: 50%">
@@ -15,14 +15,6 @@
 	<script>
 
 
-
-	var randomScalingFactor = function(){ return Math.round(Math.random()*100)};
-	var houseTotal = function(){return getTotalSpending()};
-	var houseSocial = function(){return getTotalSocial()};
-	var getTotalKitchen = function(){return getTotalKitchen()};
-	console.log(houseSocial());
-
-
 	var barChartData = {
 		labels : ["January","February","March","April","May","June","July"],
 		datasets : [
@@ -32,7 +24,7 @@
 				highlightFill: "rgba(220,220,220,0.75)",
 				highlightStroke: "rgba(220,220,220,1)",
 				//data : [randomScalingFactor,randomScalingFactor,randomScalingFactor,randomScalingFactor,randomScalingFactor,randomScalingFactor,randomScalingFactor]
-				data : [houseTotal(),houseTotal(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor()]
+				data : [randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor()]
 			},
 			{
 				fillColor : "rgba(151,187,205,0.5)",
