@@ -19,7 +19,7 @@ MongoClient.connect(url, function (err, db) {
   if (err) {
     console.log('Unable to connect to the mongoDB server. Error:', err);
   } else {
-    //HURRAY!! We are connected. :)
+    //We are connected
     console.log('Connection established to', url);
     var collection = db.collection("Transactions");
     collection.find({HouseName: "Grove"}, {SocialExpense:1, KitchenExpense:1}).toArray(function(err, result){
@@ -45,3 +45,7 @@ MongoClient.connect(url, function (err, db) {
     });
   }
 });
+
+var getTotalSpending = function(){return total};
+var getTotalSocial = function(){return SocialTotal};
+var getTotalKitchen = function(){return KitchenTotal};
