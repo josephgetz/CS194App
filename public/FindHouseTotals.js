@@ -46,6 +46,6 @@ MongoClient.connect(url, function (err, db) {
   }
 });
 
-var getTotalSpending = function(){return total};
+var getTotalSpending = function(){return Math.round(total)};
 var getTotalSocial = function(){return SocialTotal};
 var getTotalKitchen = function(){return KitchenTotal};
