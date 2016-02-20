@@ -1,0 +1,231 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/usr/local/bin/node',
+1 verbose cli   '/usr/local/bin/npm',
+1 verbose cli   'install',
+1 verbose cli   '-g',
+1 verbose cli   'browserify' ]
+2 info using npm@2.14.12
+3 info using node@v4.3.0
+4 verbose install initial load of /usr/local/lib/package.json
+5 verbose readDependencies loading dependencies from /usr/local/lib/package.json
+6 silly cache add args [ 'browserify', null ]
+7 verbose cache add spec browserify
+8 silly cache add parsed spec Result {
+8 silly cache add   raw: 'browserify',
+8 silly cache add   scope: null,
+8 silly cache add   name: 'browserify',
+8 silly cache add   rawSpec: '',
+8 silly cache add   spec: 'latest',
+8 silly cache add   type: 'tag' }
+9 silly addNamed browserify@latest
+10 verbose addNamed "latest" is being treated as a dist-tag for browserify
+11 info addNameTag [ 'browserify', 'latest' ]
+12 silly mapToRegistry name browserify
+13 silly mapToRegistry using default registry
+14 silly mapToRegistry registry https://registry.npmjs.org/
+15 silly mapToRegistry uri https://registry.npmjs.org/browserify
+16 verbose addNameTag registry:https://registry.npmjs.org/browserify not in flight; fetching
+17 verbose request uri https://registry.npmjs.org/browserify
+18 verbose request no auth needed
+19 info attempt registry request try #1 at 11:38:25 AM
+20 verbose request id 345fee2348082d4a
+21 verbose etag "7A7BK6D9MZ7KTD58YP4JOAXWO"
+22 http request GET https://registry.npmjs.org/browserify
+23 http 200 https://registry.npmjs.org/browserify
+24 verbose headers { server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+24 verbose headers   etag: '"73WECSW8DA6AYV415828HYCI5"',
+24 verbose headers   'content-type': 'application/json',
+24 verbose headers   'cache-control': 'max-age=300',
+24 verbose headers   'content-length': '857873',
+24 verbose headers   'accept-ranges': 'bytes',
+24 verbose headers   date: 'Sat, 20 Feb 2016 19:38:25 GMT',
+24 verbose headers   via: '1.1 varnish',
+24 verbose headers   age: '53',
+24 verbose headers   connection: 'keep-alive',
+24 verbose headers   'x-served-by': 'cache-sjc3129-SJC',
+24 verbose headers   'x-cache': 'HIT',
+24 verbose headers   'x-cache-hits': '1',
+24 verbose headers   'x-timer': 'S1455997105.368219,VS0,VE1',
+24 verbose headers   vary: 'Accept' }
+25 silly get cb [ 200,
+25 silly get   { server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+25 silly get     etag: '"73WECSW8DA6AYV415828HYCI5"',
+25 silly get     'content-type': 'application/json',
+25 silly get     'cache-control': 'max-age=300',
+25 silly get     'content-length': '857873',
+25 silly get     'accept-ranges': 'bytes',
+25 silly get     date: 'Sat, 20 Feb 2016 19:38:25 GMT',
+25 silly get     via: '1.1 varnish',
+25 silly get     age: '53',
+25 silly get     connection: 'keep-alive',
+25 silly get     'x-served-by': 'cache-sjc3129-SJC',
+25 silly get     'x-cache': 'HIT',
+25 silly get     'x-cache-hits': '1',
+25 silly get     'x-timer': 'S1455997105.368219,VS0,VE1',
+25 silly get     vary: 'Accept' } ]
+26 verbose get saving browserify to /Users/josephgetz/.npm/registry.npmjs.org/browserify/.cache.json
+27 silly addNameTag next cb for browserify with tag latest
+28 silly addNamed browserify@13.0.0
+29 verbose addNamed "13.0.0" is a plain semver version for browserify
+30 silly cache afterAdd browserify@13.0.0
+31 verbose afterAdd /Users/josephgetz/.npm/browserify/13.0.0/package/package.json not in flight; writing
+32 verbose afterAdd /Users/josephgetz/.npm/browserify/13.0.0/package/package.json written
+33 silly install resolved [ { name: 'browserify',
+33 silly install resolved     version: '13.0.0',
+33 silly install resolved     description: 'browser-side require() the node way',
+33 silly install resolved     main: 'index.js',
+33 silly install resolved     bin: { browserify: 'bin/cmd.js' },
+33 silly install resolved     repository:
+33 silly install resolved      { type: 'git',
+33 silly install resolved        url: 'git+ssh://git@github.com/substack/node-browserify.git' },
+33 silly install resolved     keywords:
+33 silly install resolved      [ 'browser',
+33 silly install resolved        'require',
+33 silly install resolved        'commonjs',
+33 silly install resolved        'commonj-esque',
+33 silly install resolved        'bundle',
+33 silly install resolved        'npm',
+33 silly install resolved        'javascript' ],
+33 silly install resolved     dependencies:
+33 silly install resolved      { JSONStream: '^1.0.3',
+33 silly install resolved        assert: '~1.3.0',
+33 silly install resolved        'browser-pack': '^6.0.1',
+33 silly install resolved        'browser-resolve': '^1.11.0',
+33 silly install resolved        'browserify-zlib': '~0.1.2',
+33 silly install resolved        buffer: '^4.1.0',
+33 silly install resolved        'concat-stream': '~1.5.1',
+33 silly install resolved        'console-browserify': '^1.1.0',
+33 silly install resolved        'constants-browserify': '~1.0.0',
+33 silly install resolved        'crypto-browserify': '^3.0.0',
+33 silly install resolved        defined: '^1.0.0',
+33 silly install resolved        'deps-sort': '^2.0.0',
+33 silly install resolved        'domain-browser': '~1.1.0',
+33 silly install resolved        duplexer2: '~0.1.2',
+33 silly install resolved        events: '~1.1.0',
+33 silly install resolved        glob: '^5.0.15',
+33 silly install resolved        has: '^1.0.0',
+33 silly install resolved        htmlescape: '^1.1.0',
+33 silly install resolved        'stream-http': '^2.0.0',
+33 silly install resolved        'https-browserify': '~0.0.0',
+33 silly install resolved        inherits: '~2.0.1',
+33 silly install resolved        'insert-module-globals': '^7.0.0',
+33 silly install resolved        isarray: '0.0.1',
+33 silly install resolved        'labeled-stream-splicer': '^2.0.0',
+33 silly install resolved        'module-deps': '^4.0.2',
+33 silly install resolved        'os-browserify': '~0.1.1',
+33 silly install resolved        parents: '^1.0.1',
+33 silly install resolved        'path-browserify': '~0.0.0',
+33 silly install resolved        process: '~0.11.0',
+33 silly install resolved        punycode: '^1.3.2',
+33 silly install resolved        'querystring-es3': '~0.2.0',
+33 silly install resolved        'read-only-stream': '^2.0.0',
+33 silly install resolved        'readable-stream': '^2.0.2',
+33 silly install resolved        resolve: '^1.1.4',
+33 silly install resolved        shasum: '^1.0.0',
+33 silly install resolved        'shell-quote': '^1.4.3',
+33 silly install resolved        'stream-browserify': '^2.0.0',
+33 silly install resolved        string_decoder: '~0.10.0',
+33 silly install resolved        subarg: '^1.0.0',
+33 silly install resolved        'syntax-error': '^1.1.1',
+33 silly install resolved        through2: '^2.0.0',
+33 silly install resolved        'timers-browserify': '^1.0.1',
+33 silly install resolved        'tty-browserify': '~0.0.0',
+33 silly install resolved        url: '~0.11.0',
+33 silly install resolved        util: '~0.10.1',
+33 silly install resolved        'vm-browserify': '~0.0.1',
+33 silly install resolved        xtend: '^4.0.0' },
+33 silly install resolved     devDependencies:
+33 silly install resolved      { backbone: '~0.9.2',
+33 silly install resolved        'browser-unpack': '^1.1.1',
+33 silly install resolved        'coffee-script': '~1.10.0',
+33 silly install resolved        coffeeify: '~1.1.0',
+33 silly install resolved        es6ify: '~0.4.8',
+33 silly install resolved        isstream: '^0.1.2',
+33 silly install resolved        seq: '0.3.5',
+33 silly install resolved        tap: '^2.2.0',
+33 silly install resolved        temp: '^0.8.1',
+33 silly install resolved        through: '^2.3.4' },
+33 silly install resolved     author:
+33 silly install resolved      { name: 'James Halliday',
+33 silly install resolved        email: 'mail@substack.net',
+33 silly install resolved        url: 'http://substack.net' },
+33 silly install resolved     scripts: { test: 'tap test/*.js' },
+33 silly install resolved     license: 'MIT',
+33 silly install resolved     gitHead: '5b82a2f1bc061cb47ff4aa7c702ed79fc20effa8',
+33 silly install resolved     bugs: { url: 'https://github.com/substack/node-browserify/issues' },
+33 silly install resolved     homepage: 'https://github.com/substack/node-browserify#readme',
+33 silly install resolved     _id: 'browserify@13.0.0',
+33 silly install resolved     _shasum: '8f223bb24ff4ee4335e6bea9671de294e43ba6a3',
+33 silly install resolved     _from: 'browserify@latest',
+33 silly install resolved     _npmVersion: '2.14.7',
+33 silly install resolved     _nodeVersion: '4.2.3',
+33 silly install resolved     _npmUser: { name: 'feross', email: 'feross@feross.org' },
+33 silly install resolved     dist:
+33 silly install resolved      { shasum: '8f223bb24ff4ee4335e6bea9671de294e43ba6a3',
+33 silly install resolved        tarball: 'http://registry.npmjs.org/browserify/-/browserify-13.0.0.tgz' },
+33 silly install resolved     maintainers:
+33 silly install resolved      [ [Object],
+33 silly install resolved        [Object],
+33 silly install resolved        [Object],
+33 silly install resolved        [Object],
+33 silly install resolved        [Object],
+33 silly install resolved        [Object],
+33 silly install resolved        [Object],
+33 silly install resolved        [Object],
+33 silly install resolved        [Object],
+33 silly install resolved        [Object],
+33 silly install resolved        [Object] ],
+33 silly install resolved     directories: {},
+33 silly install resolved     _resolved: 'https://registry.npmjs.org/browserify/-/browserify-13.0.0.tgz',
+33 silly install resolved     readme: 'ERROR: No README data found!' } ]
+34 info install browserify@13.0.0 into /usr/local/lib
+35 info installOne browserify@13.0.0
+36 verbose installOne of browserify to /usr/local/lib not in flight; installing
+37 verbose lock using /Users/josephgetz/.npm/_locks/browserify-361ec04d0c7090cb.lock for /usr/local/lib/node_modules/browserify
+38 silly install write writing browserify 13.0.0 to /usr/local/lib/node_modules/browserify
+39 verbose unbuild lib/node_modules/browserify
+40 silly gentlyRm /usr/local/lib/node_modules/browserify is being purged from base /usr/local
+41 verbose gentlyRm don't care about contents; nuking /usr/local/lib/node_modules/browserify
+42 verbose tar unpack /Users/josephgetz/.npm/browserify/13.0.0/package.tgz
+43 verbose tar unpacking to /usr/local/lib/node_modules/browserify
+44 silly gentlyRm /usr/local/lib/node_modules/browserify is being purged
+45 verbose gentlyRm don't care about contents; nuking /usr/local/lib/node_modules/browserify
+46 silly gunzTarPerm modes [ '755', '644' ]
+47 error tar.unpack untar error /Users/josephgetz/.npm/browserify/13.0.0/package.tgz
+48 verbose unlock done using /Users/josephgetz/.npm/_locks/browserify-361ec04d0c7090cb.lock for /usr/local/lib/node_modules/browserify
+49 verbose fstream_path /usr/local/lib/node_modules/browserify
+50 verbose fstream_type Directory
+51 verbose fstream_class DirWriter
+52 verbose stack Error: EACCES: permission denied, mkdir '/usr/local/lib/node_modules/browserify'
+52 verbose stack     at Error (native)
+53 verbose fstream_stack /usr/local/lib/node_modules/npm/node_modules/fstream/lib/dir-writer.js:35:25
+53 verbose fstream_stack /usr/local/lib/node_modules/npm/node_modules/mkdirp/index.js:47:53
+53 verbose fstream_stack FSReqWrap.oncomplete (fs.js:82:15)
+54 verbose cwd /Users/josephgetz/CS194App
+55 error Darwin 14.5.0
+56 error argv "/usr/local/bin/node" "/usr/local/bin/npm" "install" "-g" "browserify"
+57 error node v4.3.0
+58 error npm  v2.14.12
+59 error path /usr/local/lib/node_modules/browserify
+60 error code EACCES
+61 error errno -13
+62 error syscall mkdir
+63 error Error: EACCES: permission denied, mkdir '/usr/local/lib/node_modules/browserify'
+63 error     at Error (native)
+63 error  { [Error: EACCES: permission denied, mkdir '/usr/local/lib/node_modules/browserify']
+63 error   errno: -13,
+63 error   code: 'EACCES',
+63 error   syscall: 'mkdir',
+63 error   path: '/usr/local/lib/node_modules/browserify',
+63 error   fstream_type: 'Directory',
+63 error   fstream_path: '/usr/local/lib/node_modules/browserify',
+63 error   fstream_class: 'DirWriter',
+63 error   fstream_stack:
+63 error    [ '/usr/local/lib/node_modules/npm/node_modules/fstream/lib/dir-writer.js:35:25',
+63 error      '/usr/local/lib/node_modules/npm/node_modules/mkdirp/index.js:47:53',
+63 error      'FSReqWrap.oncomplete (fs.js:82:15)' ] }
+64 error Please try running this command again as root/Administrator.
+65 verbose exit [ -13, true ]
+66 verbose unbuild lib/node_modules/browserify
+67 silly gentlyRm /usr/local/lib/node_modules/browserify is being purged from base /usr/local
+68 verbose gentlyRm don't care about contents; nuking /usr/local/lib/node_modules/browserify

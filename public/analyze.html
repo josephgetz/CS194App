@@ -2,6 +2,7 @@
 <html>
 	<head>
 		<title>Bar Chart</title>
+		<script src="js/require.js"></script>
 		<script src="./FindHouseTotals.js">
 			window.houseTotal = Math.round(getTotalSpending());
 			console.log("Total is:", houseTotal);
@@ -14,7 +15,7 @@
 		</div>
 
 	<script>
-	/*var randomScalingFactor = function() {return Math.round(Math.random() * 100)};
+	var randomScalingFactor = function() {return Math.round(Math.random() * 100)};
 	console.log("Hello its me", window.houseTotal);
 	var barChartData = {
 		labels : ["January","February","March","April","May","June","July"],
@@ -43,7 +44,7 @@
 		window.myBar = new Chart(ctx).Bar(barChartData, {
 			responsive : true
 		});
-	}*/
+	}
 
 	</script>
 	</body>
