@@ -7,6 +7,7 @@ var MongoClient = mongodb.MongoClient;
 //The collection we want to search
 var collections = ["Transactions"]
 
+
 // Connection URL. This is where your mongodb server is running.
 var url = 'mongodb://heroku_2n17smsd:je7ho1n1fpt810asuetg55jm0h@ds051913.mongolab.com:51913/heroku_2n17smsd';
 

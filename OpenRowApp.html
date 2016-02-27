@@ -1,0 +1,87 @@
+<head>
+  <title>Read Data</title>
+</head>
+ 
+<body>
+	
+	<div class="container">
+	<header>
+		<h1>Read Data</h1>
+		<form class="new-task">
+			<input type="text" name="text" placeholder="Type to add new data" />
+		</form>
+		<form class="view-task">
+			<input type="text" name="text" placeholder="Type to find data" />
+		</form>
+	</header>
+	<script src="Chart.min.js"></script>
+	<h1>Chart_</h1>
+	{{>chart}}
+	<form class="house-name">
+		<input type="text" name="text" placeholder="Enter house name" />
+		<!-- <canvas id="myChart" width="400" height="400"></canvas> -->
+	</form>
+
+	<form class="week">
+		<input type="text" name="text" placeholder="Enter week" />
+		<!-- <canvas id="myChart" width="400" height="400"></canvas> -->
+	</form>
+
+	<form class="chart-by-type">
+		<button>Chart by type</button>
+		<!-- <canvas id="myChart" width="400" height="400"></canvas> -->
+	</form>
+	<form class="chart-by-week">
+		<button>Chart by week</button>
+		<!-- <canvas id="myChart" width="400" height="400"></canvas> -->
+	</form>
+	<canvas id="myChart" width="400" height="400"></canvas>
+
+	<div id="container"></div>
+
+    <!-- <ul>
+      {{#each tasks}}
+        {{> task}}
+      {{/each}}
+
+      <script src="Chart.js"></script>
+
+    </ul> -->
+  </div>
+
+
+</body>
+
+<!-- <body>
+	<script src="Chart.min.js"></script>
+	<h1>Chart_</h1>
+	{{>chart}}
+	<form class="new-chart">
+		<input type="text" name="text" placeholder="Make a chart!" />
+		<canvas id="myChart" width="400" height="400"></canvas>
+	</form>
+</body> -->
+
+
+ 
+<template name="task">
+	<li>{{text}}</li>
+</template>
+
+<template name="chart">
+	Chart_
+</template>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
