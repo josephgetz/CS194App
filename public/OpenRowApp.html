@@ -28,10 +28,11 @@
     </div>
     <div id="house_averages" class="tab-pane fade">
       <h3>House Average</h3>
-      <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+      <p>This will calculate the average social and kitchen transaction size over all weeks for a particular house.</p>
       <div class = "row">
-      <div class = "col-md-6">
-      		<div class="dropdown">
+      	<div class = "col-md-6">
+      		<form class = "which-house-average">
+      			<div class="dropdown">
     			<!-- <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">House
     			<span class="caret"></span></button>
     			<ul class="dropdown-menu">
@@ -40,19 +41,23 @@
       				<li><a href="#">Grove</a></li>
       				<li><a href="#">Roth</a></li>
     			</ul> -->
-    			<select class="form-control" id = "Desired-House-Average">
-    				<option selected disabled>House</option>
-   					<option value="one">680</option>
-    				<option value="two">EBF</option>
-    				<option value="three">Grove</option>
-    				<option value="four">Roth</option>
-				</select>
-  	  		</div>
+    				<select class="form-control" id = "desiredHouseAverage">
+    					<option selected disabled>House</option>
+   						<option value="680">680</option>
+    					<option value="EBF">EBF</option>
+    					<option value="Grove">Grove</option>
+    					<option value="Roth">Roth</option>
+					</select>
+  	  			</div>
+  	  		</form>
   		</div>
+  	<form class = "find-house-average">
   	    <div class = "col-md-6">
   	  	  <button>Visualize</button>
   	    </div>
-  	  </div>
+  	</form>
+  	</div>
+  	<canvas id="averageChart" width="400" height="400"></canvas>
     </div>
     <div id="individual_houses" class="tab-pane fade">
       <h3>Individual Houses</h3>

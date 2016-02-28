@@ -83,6 +83,7 @@ Template.body.events({
   }
 });
 
+
 weeks = 0
 Template.body.events({
   "submit .week": function (event) {
@@ -180,6 +181,55 @@ Template.body.events({
     // }
 
     var ctx = document.getElementById("myChart").getContext("2d");
+
+    new Chart(ctx).Bar(data);
+
+  }
+});
+
+Template.body.events({
+  "submit .find-house-average": function (event) {
+    var currHouse = document.getElementById("desiredHouseAverage");
+    var house_average = currHouse.options[currHouse.selectedIndex].value;
+    event.preventDefault();
+        event.preventDefault();
+    query = db.find({
+          "HouseName": house_average
+    }).fetch();
+    var denominator = query.length;
+
+
+    var kitchen = 0;
+    var social = 0;
+
+    for (var i = 0; i < query.length; i++) {
+      kitchen += query[i].KitchenExpense;
+      social += query[i].SocialExpense;
+    }
+    console.log(denominator);
+    console.log(kitchen);
+    console.log(social);
+    kitchen = kitchen / denominator;
+    social = social/ denominator;
+
+    console.log(kitchen);
+    console.log(social);
+
+    var data = {
+      labels: ["Kitchen", "Social"],
+      datasets: [
+          {
+              label: "My First dataset",
+              fillColor: "rgba(220,220,220,0.5)",
+              strokeColor: "rgba(220,220,220,0.8)",
+              highlightFill: "rgba(220,220,220,0.75)",
+              highlightStroke: "rgba(220,220,220,1)",
+              data: [kitchen, social]
+          },
+      ]
+    }
+
+    var ctx = document.getElementById("averageChart").getContext("2d");
 
     new Chart(ctx).Bar(data);
 
