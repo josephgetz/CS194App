@@ -32,14 +32,21 @@
       <div class = "row">
       <div class = "col-md-6">
       		<div class="dropdown">
-    			<button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">House
+    			<!-- <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">House
     			<span class="caret"></span></button>
     			<ul class="dropdown-menu">
       				<li><a href="#">680</a></li>
       				<li><a href="#">EBF</a></li>
       				<li><a href="#">Grove</a></li>
       				<li><a href="#">Roth</a></li>
-    			</ul>
+    			</ul> -->
+    			<select class="form-control" id = "Desired-House-Average">
+    				<option selected disabled>House</option>
+   					<option value="one">680</option>
+    				<option value="two">EBF</option>
+    				<option value="three">Grove</option>
+    				<option value="four">Roth</option>
+				</select>
   	  		</div>
   		</div>
   	    <div class = "col-md-6">
@@ -53,36 +60,55 @@
 	  <div class = "row">
 	  	<div class = "col-md-3">
       		<div class="dropdown">
-    			<button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">House
+    			<!-- <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">House
     			<span class="caret"></span></button>
     			<ul class="dropdown-menu">
       				<li><a href="#">680</a></li>
       				<li><a href="#">EBF</a></li>
       				<li><a href="#">Grove</a></li>
       				<li><a href="#">Roth</a></li>
-    			</ul>
+    			</ul> -->
+    			<select class="form-control">
+    				<option selected disabled>House</option>
+   					<option value="one">680</option>
+    				<option value="two">EBF</option>
+    				<option value="three">Grove</option>
+    				<option value="four">Roth</option>
+				</select>
   	  		</div>
   		</div>
   		<div class = "col-md-3">
 	  		<div class="dropdown">
-    			<button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">View
+    			<!-- <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">View
     			<span class="caret"></span></button>
     			<ul class="dropdown-menu">
       				<li><a href="#">Overall</a></li>
     		  		<li><a href="#">Kitchen Expenses</a></li>
     		  		<li><a href="#">Social Expenses</a></li>
-    			</ul>
+    			</ul> -->
+    			<select class="form-control">
+    					<option selected disabled>Expense Type</option>
+   						<option value="one">Overall</option>
+    					<option value="two">Kitchen Expenses</option>
+    					<option value="three">Social Expenses</option>
+				</select>
   			</div>
   		</div>
   		<div class = "col-md-3">
   	  		<div class="dropdown">
-    			<button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Filter By
+    			<!-- <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Filter By
     			<span class="caret"></span></button>
     			<ul class="dropdown-menu">
     	  			<li><a href="#">Weekly</a></li>
       	  			<li><a href="#">Quarterly</a></li>
     	  			<li><a href="#">Total</a></li>
-    			</ul>
+    			</ul> -->
+    			<select class="form-control">
+    				<option selected disabled>Filter By</option>
+   					<option value="one">Weekly</option>
+    				<option value="two">Quarterly</option>
+    				<option value="three">Total</option>
+				</select>
   	  		</div>
   	  	</div>
   	  	<div class = "col-md-3">
@@ -98,50 +124,76 @@
       		<div class = "row">
       			<div class = "col-md-6">
       				<div class="dropdown">
-    					<button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">House 1
+    					<!-- <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">House 1
     					<span class="caret"></span></button>
     					<ul class="dropdown-menu">
     	  					<li><a href="#">680</a></li>
       						<li><a href="#">EBF</a></li>
       						<li><a href="#">Grove</a></li>
       						<li><a href="#">Roth</a></li>
-    					</ul>
+    					</ul> -->
+    					<select class="form-control">
+    						<option selected disabled>House 1</option>
+   							<option value="one">680</option>
+    						<option value="two">EBF</option>
+    						<option value="three">Grove</option>
+    						<option value="four">Roth</option>
+						</select>
   	  				</div>
       			</div>
       			<div class = "col-md-6">
       				<div class="dropdown">
-    					<button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">House 2
+    					<!-- <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">House 2
     					<span class="caret"></span></button>
     					<ul class="dropdown-menu">
     	  					<li><a href="#">680</a></li>
       						<li><a href="#">EBF</a></li>
       						<li><a href="#">Grove</a></li>
       						<li><a href="#">Roth</a></li>
-    					</ul>
+    					</ul> -->
+    					<select class="form-control">
+    						<option selected disabled>House 2</option>
+   							<option value="one">680</option>
+    						<option value="two">EBF</option>
+    						<option value="three">Grove</option>
+    						<option value="four">Roth</option>
+						</select>
   	  				</div>
       			</div>
       		</div>
       		<div class = "row">
       			<div class = "col-md-6">
       				<div class="dropdown">
-    					<button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">View
+    					<!-- <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">View
     					<span class="caret"></span></button>
     					<ul class="dropdown-menu">
     	  					<li><a href="#">Overall</a></li>
     		  				<li><a href="#">Kitchen Expenses</a></li>
     		  				<li><a href="#">Social Expenses</a></li>
-    					</ul>
+    					</ul> -->
+    					<select class="form-control">
+    						<option selected disabled hidden>Expense Type</option>
+   							<option value="one">Overall</option>
+    						<option value="two">Kitchen Expenses</option>
+    						<option value="three">Social Expenses</option>
+						</select>
   	  				</div>
       			</div>
       			<div class = "col-md-6">
       				<div class="dropdown">
-    					<button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Filter By
-    					<span class="caret"></span></button>
-    					<ul class="dropdown-menu">
-    	  					<li><a href="#">Weekly</a></li>
-      	  					<li><a href="#">Quarterly</a></li>
-    	  					<li><a href="#">Total</a></li>
-    					</ul>
+    					<!-- <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Filter By
+    					<span class="caret"></span></button> -->
+    					<select class = "form-control" id = "FilterBy1">
+    						<option selected disabled hidden>Filter By</option>
+   							<option value="one">Weekly</option>
+    						<option value="two">Quarterly</option>
+    						<option value="three">Total</option>
+						</select>
+    					<!-- <ul class="dropdown-menu"> -->
+    	  					<!-- <li><a href="#">Weekly</a></li> -->
+      	  					<!-- <li><a href="#">Quarterly</a></li> -->
+    	  					<!-- <li><a href="#">Total</a></li> -->
+    					<!-- </ul> -->
   	  				</div>
       			</div>
       		</div>
