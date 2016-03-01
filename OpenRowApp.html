@@ -87,7 +87,7 @@
     </div>
     <div id="house_averages" class="tab-pane fade">
       <h3>House Average</h3>
-      <p>This will calculate the average social and kitchen transaction size over all weeks for a particular house.</p>
+      <p>This will calculate the average social and kitchen transaction size over all weeks for a particular house in a bar chart. In addition this should produce a pie chart breaking down the total social and kitchen expenses of the house in question.</p>
       <div class = "row">
       	<div class = "col-md-6">
       		<form class = "which-house-average">
@@ -116,6 +116,9 @@
   	    </div>
   	</form>
   	</div>
+    <h3>Total Spending Breakdown</h3>
+    <canvas id="housePieChart" width="400" height="400"></canvas>
+    <h3>Average Transaction Size</h3>
   	<canvas id="averageChart" width="400" height="400"></canvas>
     </div>
     <div id="individual_houses" class="tab-pane fade">

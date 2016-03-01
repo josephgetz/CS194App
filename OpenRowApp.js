@@ -348,6 +348,26 @@ Template.body.events({
     console.log(denominator);
     console.log(kitchen);
     console.log(social);
+
+    var pieData = [
+        {
+          value: kitchen,
+          color:"#F7464A",
+          highlight: "#FF5A5E",
+          label: "Overall Total Kitchen Spending"
+        },
+        {
+          value: social,
+          color: "#46BFBD",
+          highlight: "#5AD3D1",
+          label: "Overall Total Social Spending"
+        }
+    ];
+
+    var ctx = document.getElementById("housePieChart").getContext("2d");
+    new Chart(ctx).Pie(pieData);
+
+
     kitchen = kitchen / denominator;
     social = social/ denominator;
 
@@ -355,7 +375,7 @@ Template.body.events({
     console.log(social);
 
     var data = {
-      labels: ["Kitchen", "Social"],
+      labels: ["Average Kitchen Transaction", "Average Social Transaction"],
       datasets: [
           {
               label: "My First dataset",
