@@ -1,9 +1,275 @@
 <head>
-  <title>Read Data</title>
+  	<title>Read Data</title>
+
+  	<link type="text/css" rel="stylesheet" src="css/animate.css">
+    <link type="text/css" rel="stylesheet" src="css/bootstrap-theme.min.css">
+    <link type="text/css" rel="stylesheet" src="css/bootstrap.min.css">
+    <link type="text/css" rel="stylesheet" href="css/custom.css">
+
+  	<script src="js/jquery-1.11.0.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/wow.min.js"></script>
 </head>
- 
+
 <body>
-	
+<div class="container">
+  <h2 style = "font-family: Impact">OpenRow</h2>
+  <ul class="nav nav-tabs">
+    <li class="active"><a data-toggle="tab" href="#home">Home</a></li>
+    <li><a data-toggle="tab" href="#house_averages">House Average</a></li>
+    <li><a data-toggle="tab" href="#individual_houses">Individual Houses</a></li>
+    <li><a data-toggle="tab" href="#compare">Compare</a></li>
+  </ul>
+
+  <div class="tab-content">
+    <div id="home" class="tab-pane fade in active">
+      <h3>Home</h3>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        <div class="housedropdownfileUpload">
+          <select class="form-control" id = "house-upload">
+            <option selected disabled>House</option>
+            <option value="one">680</option>
+            <option value="two">EBF</option>
+            <option value="three">Grove</option>
+            <option value="four">Roth</option>
+        </select>
+      </div>
+
+    <div class="week-dropdown-upload">
+          <select class="form-control" id = "week-upload">
+            <option selected disabled>Week</option>
+            <option value="one">1</option>
+            <option value="two">2</option>
+            <option value="three">3</option>
+            <option value="four">4</option>
+            <option value="five">5</option>
+            <option value="six">6</option>
+            <option value="seven">7</option>
+            <option value="eight">8</option>
+            <option value="nine">9</option>
+            <option value="ten">10</option>
+            <option value="eleven">11</option>
+        </select>
+      </div>
+
+      <div class="week-dropdown-upload">
+          <select class="form-control" id = "quarter-upload">
+            <option selected disabled>Quarter</option>
+            <option value="one">Fall</option>
+            <option value="two">Winter</option>
+            <option value="three">Spring</option>
+        </select>
+      </div>
+
+    <div class="fileupload fileupload-new" data-provides="fileupload">
+     <span class="btn btn-file">
+<!--        <span class="fileupload-new">file-upload.label.de</span>
+        <span class="fileupload-exists">Andere</span> -->
+        <input name="file-upload.name" class="file-upload-input" method="file-upload.method" type="file"/>
+     </span>
+     <span class="fileupload-preview">
+     </span>
+     <a href="#" class="close fileupload-exists" data-dismiss="fileupload" style="float: none">×</a>
+
+  </div>
+
+    <!--   <form class="fileUpload">
+        <input type="file" id="myFile" method="{{fileUpload}}">
+      </form> -->
+      <form class="box" method="post" action="" enctype="multipart/form-data">
+      <div class="box__input">
+        <button class="box__button" type="submit">Upload</button>
+      </div>
+      <div class="box__uploading">Uploading&hellip;</div>
+      <div class="box__success">Done!</div>
+      <div class="box__error">Error! <span></span>.</div>
+      </form>
+    </div>
+    <div id="house_averages" class="tab-pane fade">
+      <h3>House Average</h3>
+      <p>This will calculate the average social and kitchen transaction size over all weeks for a particular house.</p>
+      <div class = "row">
+      	<div class = "col-md-6">
+      		<form class = "which-house-average">
+      			<div class="dropdown">
+    			<!-- <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">House
+    			<span class="caret"></span></button>
+    			<ul class="dropdown-menu">
+      				<li><a href="#">680</a></li>
+      				<li><a href="#">EBF</a></li>
+      				<li><a href="#">Grove</a></li>
+      				<li><a href="#">Roth</a></li>
+    			</ul> -->
+    				<select class="form-control" id = "desiredHouseAverage">
+    					<option selected disabled>House</option>
+   						<option value="680">680</option>
+    					<option value="EBF">EBF</option>
+    					<option value="Grove">Grove</option>
+    					<option value="Roth">Roth</option>
+					</select>
+  	  			</div>
+  	  		</form>
+  		</div>
+  	<form class = "find-house-average">
+  	    <div class = "col-md-6">
+  	  	  <button>Visualize</button>
+  	    </div>
+  	</form>
+  	</div>
+  	<canvas id="averageChart" width="400" height="400"></canvas>
+    </div>
+    <div id="individual_houses" class="tab-pane fade">
+      <h3>Individual Houses</h3>
+      <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>
+	  <div class = "row">
+	  	<div class = "col-md-3">
+      		<div class="dropdown">
+    			<!-- <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">House
+    			<span class="caret"></span></button>
+    			<ul class="dropdown-menu">
+      				<li><a href="#">680</a></li>
+      				<li><a href="#">EBF</a></li>
+      				<li><a href="#">Grove</a></li>
+      				<li><a href="#">Roth</a></li>
+    			</ul> -->
+    			<select class="form-control">
+    				<option selected disabled>House</option>
+   					<option value="one">680</option>
+    				<option value="two">EBF</option>
+    				<option value="three">Grove</option>
+    				<option value="four">Roth</option>
+				</select>
+  	  		</div>
+  		</div>
+  		<div class = "col-md-3">
+	  		<div class="dropdown">
+    			<!-- <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">View
+    			<span class="caret"></span></button>
+    			<ul class="dropdown-menu">
+      				<li><a href="#">Overall</a></li>
+    		  		<li><a href="#">Kitchen Expenses</a></li>
+    		  		<li><a href="#">Social Expenses</a></li>
+    			</ul> -->
+    			<select class="form-control">
+    					<option selected disabled>Expense Type</option>
+   						<option value="one">Overall</option>
+    					<option value="two">Kitchen Expenses</option>
+    					<option value="three">Social Expenses</option>
+				</select>
+  			</div>
+  		</div>
+  		<div class = "col-md-3">
+  	  		<div class="dropdown">
+    			<!-- <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Filter By
+    			<span class="caret"></span></button>
+    			<ul class="dropdown-menu">
+    	  			<li><a href="#">Weekly</a></li>
+      	  			<li><a href="#">Quarterly</a></li>
+    	  			<li><a href="#">Total</a></li>
+    			</ul> -->
+    			<select class="form-control">
+    				<option selected disabled>Filter By</option>
+   					<option value="one">Weekly</option>
+    				<option value="two">Quarterly</option>
+    				<option value="three">Total</option>
+				</select>
+  	  		</div>
+  	  	</div>
+  	  	<div class = "col-md-3">
+  	  		<button>Visualize</button>
+  	  	</div>
+      </div>
+	</div>
+    <div id="compare" class="tab-pane fade">
+      <h3>Compare</h3>
+      <p>Eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
+      <div class = "row">
+      	<div class = "col-md-8">
+      		<div class = "row">
+      			<div class = "col-md-6">
+      				<div class="dropdown">
+    					<!-- <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">House 1
+    					<span class="caret"></span></button>
+    					<ul class="dropdown-menu">
+    	  					<li><a href="#">680</a></li>
+      						<li><a href="#">EBF</a></li>
+      						<li><a href="#">Grove</a></li>
+      						<li><a href="#">Roth</a></li>
+    					</ul> -->
+    					<select class="form-control">
+    						<option selected disabled>House 1</option>
+   							<option value="one">680</option>
+    						<option value="two">EBF</option>
+    						<option value="three">Grove</option>
+    						<option value="four">Roth</option>
+						</select>
+  	  				</div>
+      			</div>
+      			<div class = "col-md-6">
+      				<div class="dropdown">
+    					<!-- <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">House 2
+    					<span class="caret"></span></button>
+    					<ul class="dropdown-menu">
+    	  					<li><a href="#">680</a></li>
+      						<li><a href="#">EBF</a></li>
+      						<li><a href="#">Grove</a></li>
+      						<li><a href="#">Roth</a></li>
+    					</ul> -->
+    					<select class="form-control">
+    						<option selected disabled>House 2</option>
+   							<option value="one">680</option>
+    						<option value="two">EBF</option>
+    						<option value="three">Grove</option>
+    						<option value="four">Roth</option>
+						</select>
+  	  				</div>
+      			</div>
+      		</div>
+      		<div class = "row">
+      			<div class = "col-md-6">
+      				<div class="dropdown">
+    					<!-- <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">View
+    					<span class="caret"></span></button>
+    					<ul class="dropdown-menu">
+    	  					<li><a href="#">Overall</a></li>
+    		  				<li><a href="#">Kitchen Expenses</a></li>
+    		  				<li><a href="#">Social Expenses</a></li>
+    					</ul> -->
+    					<select class="form-control">
+    						<option selected disabled hidden>Expense Type</option>
+   							<option value="one">Overall</option>
+    						<option value="two">Kitchen Expenses</option>
+    						<option value="three">Social Expenses</option>
+						</select>
+  	  				</div>
+      			</div>
+      			<div class = "col-md-6">
+      				<div class="dropdown">
+    					<!-- <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Filter By
+    					<span class="caret"></span></button> -->
+    					<select class = "form-control" id = "FilterBy1">
+    						<option selected disabled hidden>Filter By</option>
+   							<option value="one">Weekly</option>
+    						<option value="two">Quarterly</option>
+    						<option value="three">Total</option>
+						</select>
+    					<!-- <ul class="dropdown-menu"> -->
+    	  					<!-- <li><a href="#">Weekly</a></li> -->
+      	  					<!-- <li><a href="#">Quarterly</a></li> -->
+    	  					<!-- <li><a href="#">Total</a></li> -->
+    					<!-- </ul> -->
+  	  				</div>
+      			</div>
+      		</div>
+      	</div>
+      	<div class = "col-md-4">
+      		<button>Visualize</button>
+      	</div>
+      </div>
+    </div>
+  </div>
+</div>
+
 	<div class="container">
 	<header>
 		<h1>Read Data</h1>
@@ -63,6 +329,11 @@
 </body> -->
 
 
+<!-- THIS IS IMPT; POSSIBLY KEEP SCRIPT STUFF -->
+  	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+  	<!-- // <script src="js/jquery.js"></script> -->
+  	<!-- Include all compiled plugins (below), or include individual files as needed -->
+  	<!-- // <script src="js/bootstrap.js"></script> -->
  
 <template name="task">
 	<li>{{text}}</li>
@@ -71,17 +342,6 @@
 <template name="chart">
 	Chart_
 </template>
-
-
-
-
-
-
-
-
-
-
-
 
 
 

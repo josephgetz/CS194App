@@ -1,4 +1,3 @@
-
 body {
   font-family: sans-serif;
   background-color: #315481;
@@ -108,6 +107,13 @@ header .hide-completed {
 
 .toggle-private {
   margin-left: 5px;
+}
+
+li.box__dragndrop,
+  .box__uploading,
+  .box__success,
+  .box__error {
+    display: none;
 }
 
 @media (max-width: 600px) {
