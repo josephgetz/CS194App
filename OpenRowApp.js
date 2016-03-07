@@ -217,7 +217,7 @@ uploadQuarter=false
 Template.body.events({
   "change .quarter-dropdown-upload": function (event){
     var e = document.getElementById("quarter-upload");
-    uploadWeek = parseFloat(e.options[e.selectedIndex].text);
+    uploadQuarter = e.options[e.selectedIndex].text;
     console.log(uploadQuarter);
   }
 });
@@ -227,6 +227,15 @@ Template.body.events({
   "change .file-upload-input": function(event, template){
      file = event.currentTarget.files[0];
      console.log(file);
+     console.log("Upload week"+uploadWeek);
+     console.log("Upload quarter"+uploadQuarter);
+     console.log("Upload house"+uploadHouse);
+    if (!uploadWeek || !uploadHouse || !uploadQuarter){
+      // console.log(uploadWeek+" "+uploadQuarter);
+      confirm("Please fill in the house name, week, and quarter before uploading the file");
+      file='No file exists'
+      return;
+    }
      var reader = new FileReader();
      // if (!uploadWeek || !uploadHouse || !uploadQuarter){
      //  // document.getElementById("uploadText")
@@ -234,8 +243,10 @@ Template.body.events({
      //  return;
      // }
      reader.onloadend = function (event) {
+
           var lines=this.result.split(/\r?\n/);
           console.log(lines);
+
           for (i=0; i<lines.length;i++){
             line=lines[i].split('\t');
             if (line[0].indexOf('/')>-1){
@@ -253,9 +264,12 @@ Template.body.events({
               });
             }
           }
+
           // Meteor.router.notification("File uploaded successfully");
         }
         reader.readAsText(file);
+        confirm("File uploaded successfully");
+
   }
 });
 
