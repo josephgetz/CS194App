@@ -135,12 +135,12 @@
       				<li><a href="#">Grove</a></li>
       				<li><a href="#">Roth</a></li>
     			</ul> -->
-    			<select class="form-control">
+    			<select class="form-control" id = "desiredHouseAverage2">
     				<option selected disabled>House</option>
-   					<option value="one">680</option>
-    				<option value="two">EBF</option>
-    				<option value="three">Grove</option>
-    				<option value="four">Roth</option>
+   					<option value="680">680</option>
+    				<option value="EBF">EBF</option>
+    				<option value="Grove">Grove</option>
+    				<option value="Roth">Roth</option>
 				</select>
   	  		</div>
   		</div>
@@ -153,11 +153,12 @@
     		  		<li><a href="#">Kitchen Expenses</a></li>
     		  		<li><a href="#">Social Expenses</a></li>
     			</ul> -->
-    			<select class="form-control">
-    					<option selected disabled>Expense Type</option>
-   						<option value="one">Overall</option>
-    					<option value="two">Kitchen Expenses</option>
-    					<option value="three">Social Expenses</option>
+    			<select class="form-control" id = "desiredExpenseBreakdown">
+    					<option selected disabled>Expense</option>
+   						<option value="Total">Total</option>
+    					<option value="Kitchen">Kitchen Expenses</option>
+    					<option value="Social">Social Expenses</option>
+              <option value="Both">Kitchen/Social Breakdown</option>
 				</select>
   			</div>
   		</div>
@@ -170,19 +171,42 @@
       	  			<li><a href="#">Quarterly</a></li>
     	  			<li><a href="#">Total</a></li>
     			</ul> -->
-    			<select class="form-control">
-    				<option selected disabled>Filter By</option>
-   					<option value="one">Weekly</option>
-    				<option value="two">Quarterly</option>
-    				<option value="three">Total</option>
+    			<select class="form-control" id = "desiredQuarter">
+    				<option selected disabled>Quarter</option>
+   					<option value="Autumn">Autumn</option>
+    				<option value="Winter">Winter</option>
+    				<option value="Spring">Spring</option>
 				</select>
   	  		</div>
   	  	</div>
-  	  	<div class = "col-md-3">
-  	  		<button>Visualize</button>
-  	  	</div>
+        <div class = "col-md-3">
+        <div class="dropdown">
+          <!-- <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">View
+          <span class="caret"></span></button>
+          <ul class="dropdown-menu">
+              <li><a href="#">Overall</a></li>
+              <li><a href="#">Kitchen Expenses</a></li>
+              <li><a href="#">Social Expenses</a></li>
+          </ul> -->
+          <select class="form-control" id = "desiredGraphType">
+              <option selected disabled>Graph Type</option>
+              <option value="Pie">Pie</option>
+              <option value="Bar">Bar</option>
+              <option value="Line">Line</option>
+        </select>
+        </div>
       </div>
 	</div>
+  <div class = "row">
+    <form class = "individual-house-graph-request">
+        <div class = "col-md-6">
+          <button>Visualize</button>
+        </div>
+    </form>
+  </div>
+  <h3>House Graph</h3>
+  <canvas id="individualHouseChart" width="400" height="400"></canvas>
+  </div>
     <div id="compare" class="tab-pane fade">
       <h3>Compare</h3>
       <p>Eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
@@ -199,12 +223,12 @@
       						<li><a href="#">Grove</a></li>
       						<li><a href="#">Roth</a></li>
     					</ul> -->
-    					<select class="form-control">
+    					<select class="form-control" id = "theChosenOne">
     						<option selected disabled>House 1</option>
-   							<option value="one">680</option>
-    						<option value="two">EBF</option>
-    						<option value="three">Grove</option>
-    						<option value="four">Roth</option>
+   							<option value="680">680</option>
+    						<option value="EBF">EBF</option>
+    						<option value="Grove">Grove</option>
+    						<option value="Roth">Roth</option>
 						</select>
   	  				</div>
       			</div>
@@ -218,18 +242,18 @@
       						<li><a href="#">Grove</a></li>
       						<li><a href="#">Roth</a></li>
     					</ul> -->
-    					<select class="form-control">
+    					<select class="form-control" id = "theChosenTwo">
     						<option selected disabled>House 2</option>
-   							<option value="one">680</option>
-    						<option value="two">EBF</option>
-    						<option value="three">Grove</option>
-    						<option value="four">Roth</option>
+   							<option value="680">680</option>
+    						<option value="EBF">EBF</option>
+    						<option value="Grove">Grove</option>
+    						<option value="Roth">Roth</option>
 						</select>
   	  				</div>
       			</div>
       		</div>
       		<div class = "row">
-      			<div class = "col-md-6">
+      			<div class = "col-md-4">
       				<div class="dropdown">
     					<!-- <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">View
     					<span class="caret"></span></button>
@@ -238,36 +262,45 @@
     		  				<li><a href="#">Kitchen Expenses</a></li>
     		  				<li><a href="#">Social Expenses</a></li>
     					</ul> -->
-    					<select class="form-control">
+    					<select class="form-control" id = "theExpenseType">
     						<option selected disabled hidden>Expense Type</option>
-   							<option value="one">Overall</option>
-    						<option value="two">Kitchen Expenses</option>
-    						<option value="three">Social Expenses</option>
+   							<option value="Overall">Overall</option>
+    						<option value="Kitchen">Kitchen Expenses</option>
+    						<option value="Social">Social Expenses</option>
 						</select>
   	  				</div>
       			</div>
-      			<div class = "col-md-6">
+      			<div class = "col-md-4">
       				<div class="dropdown">
-    					<!-- <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Filter By
-    					<span class="caret"></span></button> -->
-    					<select class = "form-control" id = "FilterBy1">
-    						<option selected disabled hidden>Filter By</option>
-   							<option value="one">Weekly</option>
-    						<option value="two">Quarterly</option>
-    						<option value="three">Total</option>
+    					<select class = "form-control" id = "theChosenQuarter">
+    						<option selected disabled hidden>Quarter</option>
+   							<option value="Autumn">Autumn</option>
+    						<option value="Winter">Winter</option>
+    						<option value="Spring">Spring</option>
 						</select>
-    					<!-- <ul class="dropdown-menu"> -->
-    	  					<!-- <li><a href="#">Weekly</a></li> -->
-      	  					<!-- <li><a href="#">Quarterly</a></li> -->
-    	  					<!-- <li><a href="#">Total</a></li> -->
-    					<!-- </ul> -->
   	  				</div>
       			</div>
+            <div class = "col-md-4">
+              <div class="dropdown">
+              <select class = "form-control" id = "theChosenGraphType">
+                <option selected disabled hidden>Graph Type</option>
+                <option value="Bar">Bar</option>
+                <option value="Pie">Pie</option>
+                <option value="Line">Line</option>
+              </select>
+              </div>
+            </div>
       		</div>
       	</div>
+        <div class = "row">
       	<div class = "col-md-4">
-      		<button>Visualize</button>
-      	</div>
+      		<form class = "compare-house-type-request">
+          <button>Visualize</button>
+          </form>
+        </div>
+      </div>
+        <h3>Compare Graph</h3>
+       <canvas id="compareHouseChart" width="400" height="400"></canvas>
       </div>
     </div>
   </div>
