@@ -1,7 +1,8 @@
 body {
   font-family: sans-serif;
   background-color: #315481;
-  background-image: linear-gradient(to bottom, #315481, #918e82 100%);
+  /*background-image: linear-gradient(to bottom, #315481, #918e82 100%);*/
+  background-image: url("http://1.bp.blogspot.com/-c6Ys8nIm51E/VZzW5RjY9jI/AAAAAAAAAXo/SSEXuc38Vis/s1600/DSCF2911.jpg");
   background-attachment: fixed;
 
   position: absolute;
