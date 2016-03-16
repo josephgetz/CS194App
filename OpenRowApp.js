@@ -1,4 +1,8 @@
 db = new Mongo.Collection("database");
+averagePie = null;
+averageLine=null;
+individualHouseChart = null;
+compareHouseChart = null;
  
 if (Meteor.isClient) {
   // This code only runs on the client
@@ -344,7 +348,10 @@ Template.body.events({
 
 Template.body.events({
   "submit .find-house-average": function (event) {
-
+    if (averagePie != null){
+      averagePie.destroy();
+      averageLine.destroy();
+    }
     var currHouse = document.getElementById("desiredHouseAverage");
     var house_average = currHouse.options[currHouse.selectedIndex].value;
     console.log(house_average);
@@ -389,11 +396,13 @@ Template.body.events({
     var ctx = document.getElementById("housePieChart").getContext("2d");
     
 
-    new Chart(ctx).Pie(pieData,{responsive: true});
+    averagePie = new Chart(ctx).Pie(pieData,{responsive: true,  scaleFontSize: 24, tooltipFontSize: 24});
 
 
     kitchen = kitchen / denominator;
     social = social/ denominator;
+    kitchen = kitchen.toFixed(2);
+    social = social.toFixed(2);
 
     console.log(kitchen);
     console.log(social);
@@ -415,7 +424,7 @@ Template.body.events({
     }
 
     var ctx = document.getElementById("averageChart").getContext("2d");
-    new Chart(ctx).Bar(data,{responsive: true});
+    averageLine = new Chart(ctx).Bar(data,{responsive: true, scaleFontSize: 24, tooltipFontSize: 24});
 
   }
 });
@@ -423,6 +432,9 @@ Template.body.events({
 
 Template.body.events({
   "submit .individual-house-graph-request": function (event) {
+    if (individualHouseChart != null){
+      individualHouseChart.destroy();
+    }
     //Obtaining request types from user
     var thisHouse = document.getElementById("desiredHouseAverage2");
     var desiredHouse = thisHouse.options[thisHouse.selectedIndex].value;
@@ -545,7 +557,7 @@ Template.body.events({
             ];
 
             var ctx = document.getElementById("individualHouseChart").getContext("2d");
-            new Chart(ctx).Pie(pieData,{responsive: true});
+            individualHouseChart = new Chart(ctx).Pie(pieData, {responsive: true, scaleFontSize: 24, tooltipFontSize: 24});
 
       }else if(requestedGraphType.localeCompare("Bar") == 0 ){
           var data = {
@@ -568,7 +580,7 @@ Template.body.events({
 
           var ctx = document.getElementById("individualHouseChart").getContext("2d");
 
-          new Chart(ctx).Bar(data,{responsive: true });
+          individualHouseChart = new Chart(ctx).Bar(data,{responsive: true, scaleFontSize: 24, tooltipFontSize: 24});
 
       }else if(requestedGraphType.localeCompare("Line") == 0 ){
             var lineChartData = {
@@ -594,8 +606,8 @@ Template.body.events({
           }
 
         var ctx = document.getElementById("individualHouseChart").getContext("2d");
-        window.myLine = new Chart(ctx).Line(lineChartData, {
-          responsive: true
+        individualHouseChart = new Chart(ctx).Line(lineChartData, {
+          responsive: true, scaleFontSize: 24, tooltipFontSize: 24
         });
 
       }
@@ -671,7 +683,7 @@ Template.body.events({
             ];
 
             var ctx = document.getElementById("individualHouseChart").getContext("2d");
-            new Chart(ctx).Pie(pieData,{responsive: true});
+            individualHouseChart = new Chart(ctx).Pie(pieData,{responsive: true, scaleFontSize: 24, tooltipFontSize: 24});
 
 
       }else if(requestedGraphType.localeCompare("Bar") == 0 ){
@@ -697,7 +709,7 @@ Template.body.events({
 
           var ctx = document.getElementById("individualHouseChart").getContext("2d");
 
-          new Chart(ctx).Bar(data,{responsive: true });
+          individualHouseChart = new Chart(ctx).Bar(data,{responsive: true, scaleFontSize: 24, tooltipFontSize: 24});
 
 
       }else if(requestedGraphType.localeCompare("Line") == 0 ){
@@ -727,8 +739,8 @@ Template.body.events({
           }
 
         var ctx = document.getElementById("individualHouseChart").getContext("2d");
-        window.myLine = new Chart(ctx).Line(lineChartData, {
-          responsive: true
+        individualHouseChart = new Chart(ctx).Line(lineChartData, {
+          responsive: true, scaleFontSize: 24, tooltipFontSize: 24
         });
 
       }
@@ -804,7 +816,7 @@ Template.body.events({
             ];
 
             var ctx = document.getElementById("individualHouseChart").getContext("2d");
-            new Chart(ctx).Pie(pieData,{responsive: true});
+            individualHouseChart = new Chart(ctx).Pie(pieData,{responsive: true, scaleFontSize: 24, tooltipFontSize: 24});
 
       }else if(requestedGraphType.localeCompare("Bar") == 0 ){
                   var data = {
@@ -830,7 +842,7 @@ Template.body.events({
 
           var ctx = document.getElementById("individualHouseChart").getContext("2d");
 
-          new Chart(ctx).Bar(data,{responsive: true });
+          individualHouseChart = new Chart(ctx).Bar(data,{responsive: true, scaleFontSize: 24, tooltipFontSize: 24});
 
 
       }else if(requestedGraphType.localeCompare("Line") == 0 ){
@@ -859,8 +871,8 @@ Template.body.events({
           }
 
         var ctx = document.getElementById("individualHouseChart").getContext("2d");
-        window.myLine = new Chart(ctx).Line(lineChartData, {
-          responsive: true
+        individualHouseChart = new Chart(ctx).Line(lineChartData, {
+          responsive: true, scaleFontSize: 24, tooltipFontSize: 24
         });
 
       }
@@ -1002,7 +1014,7 @@ Template.body.events({
             ];
 
             var ctx = document.getElementById("individualHouseChart").getContext("2d");
-            new Chart(ctx).Pie(pieData,{responsive: true});
+            individualHouseChart = new Chart(ctx).Pie(pieData,{responsive: true, scaleFontSize: 24, tooltipFontSize: 24});
 
 
       }else if(requestedGraphType.localeCompare("Bar") == 0 ){
@@ -1041,7 +1053,7 @@ Template.body.events({
 
           var ctx = document.getElementById("individualHouseChart").getContext("2d");
 
-          new Chart(ctx).Bar(data,{responsive: true });
+          individualHouseChart = new Chart(ctx).Bar(data,{responsive: true, scaleFontSize: 24, tooltipFontSize: 24});
 
 
       }else if(requestedGraphType.localeCompare("Line") == 0 ){
@@ -1085,7 +1097,7 @@ Template.body.events({
           }
 
         var ctx = document.getElementById("individualHouseChart").getContext("2d");
-        window.myLine = new Chart(ctx).Line(lineChartData, {
+        individualHouseChart = new Chart(ctx).Line(lineChartData, {
           responsive: true
         });
       }
@@ -1095,6 +1107,9 @@ Template.body.events({
 
 Template.body.events({
   "submit .compare-house-type-request": function (event) {
+    if(compareHouseChart != null){
+      compareHouseChart.destroy();
+    }
     //Obtaining request types from user
     var thisHouse1 = document.getElementById("theChosenOne");
     var desiredHouse1 = thisHouse1.options[thisHouse1.selectedIndex].value;
@@ -1199,7 +1214,7 @@ Template.body.events({
             ];
 
             var ctx = document.getElementById("compareHouseChart").getContext("2d");
-            new Chart(ctx).Pie(pieData,{responsive: true});
+            compareHouseChart = new Chart(ctx).Pie(pieData,{responsive: true, scaleFontSize: 24, tooltipFontSize: 24});
 
       }else if(requestedGraphType1.localeCompare("Bar") == 0 ){
           var data = {
@@ -1234,7 +1249,7 @@ Template.body.events({
 
           var ctx = document.getElementById("compareHouseChart").getContext("2d");
 
-          new Chart(ctx).Bar(data,{responsive: true });
+          compareHouseChart = new Chart(ctx).Bar(data,{responsive: true, scaleFontSize: 24, tooltipFontSize: 24 });
 
       }else if(requestedGraphType1.localeCompare("Line") == 0 ){
             var lineChartData = {
@@ -1275,8 +1290,8 @@ Template.body.events({
           }
 
         var ctx = document.getElementById("compareHouseChart").getContext("2d");
-        window.myLine = new Chart(ctx).Line(lineChartData, {
-          responsive: true
+        compareHouseChart = new Chart(ctx).Line(lineChartData, {
+          responsive: true, scaleFontSize: 24, tooltipFontSize: 24
         });
 
       }
@@ -1318,7 +1333,7 @@ Template.body.events({
             ];
 
             var ctx = document.getElementById("compareHouseChart").getContext("2d");
-            new Chart(ctx).Pie(pieData,{responsive: true});
+            compareHouseChart = new Chart(ctx).Pie(pieData,{responsive: true, scaleFontSize: 24, tooltipFontSize: 24});
 
 
       }else if(requestedGraphType1.localeCompare("Bar") == 0 ){
@@ -1354,7 +1369,7 @@ Template.body.events({
 
           var ctx = document.getElementById("compareHouseChart").getContext("2d");
 
-          new Chart(ctx).Bar(data,{responsive: true });
+          compareHouseChart = new Chart(ctx).Bar(data,{responsive: true, scaleFontSize: 24, tooltipFontSize: 24});
 
       }else if(requestedGraphType1.localeCompare("Line") == 0 ){
             var lineChartData = {
@@ -1393,8 +1408,8 @@ Template.body.events({
           }
 
         var ctx = document.getElementById("compareHouseChart").getContext("2d");
-        window.myLine = new Chart(ctx).Line(lineChartData, {
-          responsive: true
+        compareHouseChart = new Chart(ctx).Line(lineChartData, {
+          responsive: true, scaleFontSize: 24, tooltipFontSize: 24
         });
 
       }
@@ -1436,7 +1451,7 @@ Template.body.events({
             ];
 
             var ctx = document.getElementById("compareHouseChart").getContext("2d");
-            new Chart(ctx).Pie(pieData,{responsive: true});
+            compareHouseChart = new Chart(ctx).Pie(pieData,{responsive: true, scaleFontSize: 24, tooltipFontSize: 24});
 
       }else if(requestedGraphType1.localeCompare("Bar") == 0 ){
           var data = {
@@ -1471,7 +1486,7 @@ Template.body.events({
 
           var ctx = document.getElementById("compareHouseChart").getContext("2d");
 
-          new Chart(ctx).Bar(data,{responsive: true });
+          compareHouseChart = new Chart(ctx).Bar(data,{responsive: true, scaleFontSize: 24, tooltipFontSize: 24});
 
       }else if(requestedGraphType1.localeCompare("Line") == 0 ){
             var lineChartData = {
@@ -1510,8 +1525,8 @@ Template.body.events({
           }
 
         var ctx = document.getElementById("compareHouseChart").getContext("2d");
-        window.myLine = new Chart(ctx).Line(lineChartData, {
-          responsive: true
+        compareHouseChart = new Chart(ctx).Line(lineChartData, {
+          responsive: true, scaleFontSize: 24, tooltipFontSize: 24
         });
       }
     }
