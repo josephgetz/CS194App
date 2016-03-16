@@ -85,8 +85,6 @@ if (Meteor.isClient) {
 //       ]
 //     }
 
-
-
 house_name = ""
 Template.body.events({
   "submit .house-name": function (event) {
@@ -143,6 +141,10 @@ Template.body.events({
     }
 
     var ctx = document.getElementById("myChart").getContext("2d");
+
+    // ctx.canvas.width = 300;
+    // ctx.canvas.height = 300;
+
 
     new Chart(ctx).Bar(data);
 
@@ -342,8 +344,14 @@ Template.body.events({
 
 Template.body.events({
   "submit .find-house-average": function (event) {
+
     var currHouse = document.getElementById("desiredHouseAverage");
     var house_average = currHouse.options[currHouse.selectedIndex].value;
+    console.log(house_average);
+    if (house_average=="House"){
+      confirm("please specify the house name");
+      return;
+    }
     event.preventDefault();
         event.preventDefault();
     query = db.find({
@@ -366,19 +374,21 @@ Template.body.events({
     var pieData = [
         {
           value: kitchen,
-          color:"#F7464A",
-          highlight: "#FF5A5E",
-          label: "Overall Total Kitchen Spending"
+          color:"#558C89",
+          highlight: "#74AFAD",
+          label: "Overall Total Kitchen Spending",
         },
         {
           value: social,
-          color: "#46BFBD",
-          highlight: "#5AD3D1",
-          label: "Overall Total Social Spending"
+          color: "#D9853B",
+          highlight: "#F2A45E",
+          label: "Overall Total Social Spending",
         }
     ];
 
     var ctx = document.getElementById("housePieChart").getContext("2d");
+    
+
     new Chart(ctx).Pie(pieData,{responsive: true});
 
 
@@ -393,17 +403,18 @@ Template.body.events({
       datasets: [
           {
               label: "My First dataset",
-              fillColor: "rgba(220,220,220,0.5)",
+              fillColor: "#D9853B",
               strokeColor: "rgba(220,220,220,0.8)",
-              highlightFill: "rgba(220,220,220,0.75)",
+              highlightFill: "#F2A45E",
               highlightStroke: "rgba(220,220,220,1)",
               data: [kitchen, social]
+              // scaleFontFamily: "'Helvetica Neue', 'Helvetica', 'Arial', sans-serif",
+              // scaleFontSize: 12
           },
       ]
     }
 
     var ctx = document.getElementById("averageChart").getContext("2d");
-
     new Chart(ctx).Bar(data,{responsive: true});
 
   }
@@ -415,12 +426,28 @@ Template.body.events({
     //Obtaining request types from user
     var thisHouse = document.getElementById("desiredHouseAverage2");
     var desiredHouse = thisHouse.options[thisHouse.selectedIndex].value;
+    if (desiredHouse=="House"){
+      confirm("please specify the house name");
+      // return;
+    }
     var desiredExpense = document.getElementById("desiredExpenseBreakdown");
     var requestedExpenseBreakdown = desiredExpense.options[desiredExpense.selectedIndex].value;
+    if (requestedExpenseBreakdown=="Expense"){
+      confirm("please specify the expense type");
+      // return;
+    }
     var currDesiredQuarter = document.getElementById("desiredQuarter");
     var requestedQuarter = currDesiredQuarter.options[currDesiredQuarter.selectedIndex].value;
+    if (requestedQuarter=="Quarter"){
+      confirm("please specify the quarter");
+      // return;
+    }
     var currDesiredGraph = document.getElementById("desiredGraphType");
     var requestedGraphType = currDesiredGraph.options[currDesiredGraph.selectedIndex].value;
+    if (requestedGraphType=="Graph Type"){
+      confirm("Please specify the graph type");
+      // return;
+    }
     event.preventDefault();
         event.preventDefault();
     //Querying database for items
@@ -451,68 +478,68 @@ Template.body.events({
             var pieData = [
             {
               value: kitchenArray[0] + socialArray[0],
-              color:"#F7464A",
-              highlight: "#FF5A5E",
+              color:"#964C0A",
+              highlight: "#C3C3BF",
               label: "Week 1"
             },
             {
               value: kitchenArray[1] + socialArray[1],
-              color:"#F7464A",
-              highlight: "#FF5A5E",
+              color:"#BA671E",
+              highlight: "#C3C3BF",
               label: "Week 2"
             },
             {
               value: kitchenArray[2] + socialArray[2],
-              color:"#F7464A",
-              highlight: "#FF5A5E",
+              color:"#D9853B",
+              highlight: "#C3C3BF",
               label: "Week 3"
             },
             {
               value: kitchenArray[3] + socialArray[3],
-              color:"#F7464A",
-              highlight: "#FF5A5E",
+              color:"#F2A45E",
+              highlight: "#C3C3BF",
               label: "Week 4"
             },
             {
               value: kitchenArray[4] + socialArray[4],
-              color:"#F7464A",
-              highlight: "#FF5A5E",
+              color:"#FFC008",
+              highlight: "#C3C3BF",
               label: "Week 5"
             },
             {
               value: kitchenArray[5] + socialArray[5],
-              color:"#F7464A",
-              highlight: "#FF5A5E",
+              color:"#07545B",
+              highlight: "#C3C3BF",
               label: "Week 6"
             },
             {
               value: kitchenArray[6] + socialArray[6],
-              color:"#F7464A",
-              highlight: "#FF5A5E",
+              color:"#136971",
+              highlight: "#C3C3BF",
               label: "Week 7"
             },
             {
               value: kitchenArray[7] + socialArray[7],
-              color:"#F7464A",
-              highlight: "#FF5A5E",
+              color:"#257C84",
+              highlight: "#C3C3BF",
               label: "Week 8"
             },
             {
               value: kitchenArray[8] + socialArray[8],
-              color:"#F7464A",
-              highlight: "#FF5A5E",
+              color:"#3B8C93",
+              highlight: "#C3C3BF",
               label: "Week 9"
             },
             {
               value: kitchenArray[9] + socialArray[9],
-              color:"#F7464A",
-              highlight: "#FF5A5E",
+              color:"#5FA9B0",
+              highlight: "#C3C3BF",
               label: "Week 10"
             },
             {
               value: kitchenArray[10] + socialArray[10],
-              color:"#F7464A",
-              highlight: "#FF5A5E",
+              color:"#00292D",
+              highlight: "#C3C3BF",
               label: "Week 11"
             }
             ];
@@ -526,9 +553,9 @@ Template.body.events({
           datasets: [
           {
               label: "My First dataset",
-              fillColor: "rgba(220,220,220,0.5)",
+              fillColor: "#558C89",
               strokeColor: "rgba(220,220,220,0.8)",
-              highlightFill: "rgba(220,220,220,0.75)",
+              highlightFill: "#74AFAD",
               highlightStroke: "rgba(220,220,220,1)",
               data: [kitchenArray[0] + socialArray[0], kitchenArray[1] + socialArray[1],
               kitchenArray[2] + socialArray[2], kitchenArray[3] + socialArray[3],
@@ -550,11 +577,11 @@ Template.body.events({
               {
                 label: "My First dataset",
                 fillColor : "rgba(220,220,220,0.2)",
-                strokeColor : "rgba(220,220,220,1)",
-                pointColor : "rgba(220,220,220,1)",
+                strokeColor : "#558C89",
+                pointColor : "#558C89",
                 pointStrokeColor : "#fff",
                 pointHighlightFill : "#fff",
-                pointHighlightStroke : "rgba(220,220,220,1)",
+                pointHighlightStroke : "#74AFAD",
                 data : [kitchenArray[0] + socialArray[0], kitchenArray[1] + socialArray[1],
                   kitchenArray[2] + socialArray[2], kitchenArray[3] + socialArray[3],
                   kitchenArray[4] + socialArray[4], kitchenArray[5] + socialArray[5],
@@ -577,68 +604,68 @@ Template.body.events({
                     var pieData = [
             {
               value: kitchenArray[0],
-              color:"#F7464A",
-              highlight: "#FF5A5E",
+              color:"#964C0A",
+              highlight: "#C3C3BF",
               label: "Kitchen Week 1"
             },
             {
               value: kitchenArray[1],
-              color:"#F7464A",
-              highlight: "#FF5A5E",
+              color:"#136971",
+              highlight: "#C3C3BF",
               label: "Kitchen Week 2"
             },
             {
               value: kitchenArray[2],
-              color:"#F7464A",
-              highlight: "#FF5A5E",
+              color:"#BA671E",
+              highlight: "#C3C3BF",
               label: "Kitchen Week 3"
             },
             {
               value: kitchenArray[3],
-              color:"#F7464A",
-              highlight: "#FF5A5E",
+              color:"#257C84",
+              highlight: "#C3C3BF",
               label: "Kitchen Week 4"
             },
             {
               value: kitchenArray[4],
-              color:"#F7464A",
-              highlight: "#FF5A5E",
+              color:"#D9853B",
+              highlight: "#C3C3BF",
               label: "Kitchen Week 5"
             },
             {
               value: kitchenArray[5],
-              color:"#F7464A",
-              highlight: "#FF5A5E",
+              color:"#3B8C93",
+              highlight: "#C3C3BF",
               label: "Kitchen Week 6"
             },
             {
               value: kitchenArray[6],
-              color:"#F7464A",
-              highlight: "#FF5A5E",
+              color:"#F2A45E",
+              highlight: "#C3C3BF",
               label: "Kitchen Week 7"
             },
             {
               value: kitchenArray[7],
-              color:"#F7464A",
-              highlight: "#FF5A5E",
+              color:"#5FA9B0",
+              highlight: "#C3C3BF",
               label: "Kitchen Week 8"
             },
             {
               value: kitchenArray[8],
-              color:"#F7464A",
-              highlight: "#FF5A5E",
+              color:"#FFC008",
+              highlight: "#C3C3BF",
               label: "Kitchen Week 9"
             },
             {
               value: kitchenArray[9],
-              color:"#F7464A",
-              highlight: "#FF5A5E",
+              color:"#00292D",
+              highlight: "#C3C3BF",
               label: "Kitchen Week 10"
             },
             {
               value: kitchenArray[10],
-              color:"#F7464A",
-              highlight: "#FF5A5E",
+              color:"#07545B",
+              highlight: "#C3C3BF",
               label: "Kitchen Week 11"
             }
             ];
@@ -655,9 +682,9 @@ Template.body.events({
           datasets: [
           {
               label: "Kitchen",
-              fillColor: "rgba(220,220,220,0.5)",
+              fillColor: "#558C89",
               strokeColor: "rgba(220,220,220,0.8)",
-              highlightFill: "rgba(220,220,220,0.75)",
+              highlightFill: "#74AFAD",
               highlightStroke: "rgba(220,220,220,1)",
               data: [kitchenArray[0], kitchenArray[1],
               kitchenArray[2], kitchenArray[3],
@@ -683,11 +710,11 @@ Template.body.events({
               {
                 label: "Kitchen",
                 fillColor : "rgba(220,220,220,0.2)",
-                strokeColor : "rgba(220,220,220,1)",
-                pointColor : "rgba(220,220,220,1)",
+                strokeColor : "#558C89",
+                pointColor : "#558C89",
                 pointStrokeColor : "#fff",
                 pointHighlightFill : "#fff",
-                pointHighlightStroke : "rgba(220,220,220,1)",
+                pointHighlightStroke : "#74AFAD",
                 data : [kitchenArray[0], kitchenArray[1],
                   kitchenArray[2], kitchenArray[3],
                   kitchenArray[4], kitchenArray[5],
@@ -711,67 +738,67 @@ Template.body.events({
             {
               value: socialArray[0],
               color:"#F7464A",
-              highlight: "#FF5A5E",
+              highlight: "#C3C3BF",
               label: "Social Week 1"
             },
             {
               value: socialArray[1],
-              color:"#F7464A",
-              highlight: "#FF5A5E",
+              color:"#136971",
+              highlight: "#C3C3BF",
               label: "Social Week 2"
             },
             {
               value:socialArray[2],
-              color:"#F7464A",
-              highlight: "#FF5A5E",
+              color:"#BA671E",
+              highlight: "#C3C3BF",
               label: "Social Week 3"
             },
             {
               value:socialArray[3],
-              color:"#F7464A",
-              highlight: "#FF5A5E",
+              color:"#257C84",
+              highlight: "#C3C3BF",
               label: "Social Week 4"
             },
             {
               value: socialArray[4],
-              color:"#F7464A",
-              highlight: "#FF5A5E",
+              color:"#D9853B",
+              highlight: "#C3C3BF",
               label: "Social Week 5"
             },
             {
               value:socialArray[5],
-              color:"#F7464A",
-              highlight: "#FF5A5E",
+              color:"#3B8C93",
+              highlight: "#C3C3BF",
               label: "Social Week 6"
             },
             {
               value: socialArray[6],
-              color:"#F7464A",
-              highlight: "#FF5A5E",
+              color:"#F2A45E",
+              highlight: "#C3C3BF",
               label: "Social Week 7"
             },
             {
               value: socialArray[7],
-              color:"#F7464A",
-              highlight: "#FF5A5E",
+              color:"#5FA9B0",
+              highlight: "#C3C3BF",
               label: "Social Week 8"
             },
             {
               value: socialArray[8],
-              color:"#F7464A",
-              highlight: "#FF5A5E",
+              color:"#FFC008",
+              highlight: "#C3C3BF",
               label: "Social Week 9"
             },
             {
               value: socialArray[9],
-              color:"#F7464A",
-              highlight: "#FF5A5E",
+              color:"#00292D",
+              highlight: "#C3C3BF",
               label: "Social Week 10"
             },
             {
               value: socialArray[10],
-              color:"#F7464A",
-              highlight: "#FF5A5E",
+              color:"#07545B",
+              highlight: "#C3C3BF",
               label: "Social Week 11"
             }
             ];
@@ -788,9 +815,9 @@ Template.body.events({
           datasets: [
           {
               label: "Social",
-              fillColor: "rgba(220,220,220,0.5)",
+              fillColor: "#D9853B",
               strokeColor: "rgba(220,220,220,0.8)",
-              highlightFill: "rgba(220,220,220,0.75)",
+              highlightFill: "#F2A45E",
               highlightStroke: "rgba(220,220,220,1)",
               data: [socialArray[0], socialArray[1],
               socialArray[2], socialArray[3],
@@ -815,11 +842,11 @@ Template.body.events({
               {
                 label: "Social",
                 fillColor : "rgba(220,220,220,0.2)",
-                strokeColor : "rgba(220,220,220,1)",
-                pointColor : "rgba(220,220,220,1)",
+                strokeColor : "#D9853B",
+                pointColor : "#D9853B",
                 pointStrokeColor : "#fff",
                 pointHighlightFill : "#fff",
-                pointHighlightStroke : "rgba(220,220,220,1)",
+                pointHighlightStroke : "#F2A45E",
                 data : [socialArray[0], socialArray[1],
                   socialArray[2], socialArray[3],
                   socialArray[4], socialArray[5],
@@ -842,134 +869,134 @@ Template.body.events({
                             var pieData = [
             {
               value: socialArray[0],
-              color:"#F7464A",
-              highlight: "#FF5A5E",
+              color:"#D9853B",
+              highlight: "#F2A45E",
               label: "Social Week 1"
             },
             {
               value: socialArray[1],
-              color:"#F7464A",
-              highlight: "#FF5A5E",
+              color:"#D9853B",
+              highlight: "#F2A45E",
               label: "Social Week 2"
             },
             {
               value:socialArray[2],
-              color:"#F7464A",
-              highlight: "#FF5A5E",
+              color:"#D9853B",
+              highlight: "#F2A45E",
               label: "Social Week 3"
             },
             {
               value:socialArray[3],
-              color:"#F7464A",
-              highlight: "#FF5A5E",
+              color:"#D9853B",
+              highlight: "#F2A45E",
               label: "Social Week 4"
             },
             {
               value: socialArray[4],
-              color:"#F7464A",
-              highlight: "#FF5A5E",
+              color:"#D9853B",
+              highlight: "#F2A45E",
               label: "Social Week 5"
             },
             {
               value:socialArray[5],
-              color:"#F7464A",
-              highlight: "#FF5A5E",
+              color:"#D9853B",
+              highlight: "#F2A45E",
               label: "Social Week 6"
             },
             {
               value: socialArray[6],
-              color:"#F7464A",
-              highlight: "#FF5A5E",
+              color:"#D9853B",
+              highlight: "#F2A45E",
               label: "Social Week 7"
             },
             {
               value: socialArray[7],
-              color:"#F7464A",
-              highlight: "#FF5A5E",
+              color:"#D9853B",
+              highlight: "#F2A45E",
               label: "Social Week 8"
             },
             {
               value: socialArray[8],
-              color:"#F7464A",
-              highlight: "#FF5A5E",
+              color:"#D9853B",
+              highlight: "#F2A45E",
               label: "Social Week 9"
             },
             {
               value: socialArray[9],
-              color:"#F7464A",
-              highlight: "#FF5A5E",
+              color:"#D9853B",
+              highlight: "#F2A45E",
               label: "Social Week 10"
             },
             {
               value: socialArray[10],
-              color:"#F7464A",
-              highlight: "#FF5A5E",
+              color:"#D9853B",
+              highlight: "#F2A45E",
               label: "Social Week 11"
             },
             {
               value: kitchenArray[0],
-              color:"#F7464A",
-              highlight: "#FF5A5E",
+              color:"#558C89",
+              highlight: "#74AFAD",
               label: "Kitchen Week 1"
             },
             {
               value: kitchenArray[1],
-              color:"#F7464A",
-              highlight: "#FF5A5E",
+              color:"#558C89",
+              highlight: "#74AFAD",
               label: "Kitchen Week 2"
             },
             {
               value:kitchenArray[2],
-              color:"#F7464A",
-              highlight: "#FF5A5E",
+              color:"#558C89",
+              highlight: "#74AFAD",
               label: "Kitchen Week 3"
             },
             {
               value:kitchenArray[3],
-              color:"#F7464A",
-              highlight: "#FF5A5E",
+              color:"#558C89",
+              highlight: "#74AFAD",
               label: "Kitchen Week 4"
             },
             {
               value: kitchenArray[4],
-              color:"#F7464A",
-              highlight: "#FF5A5E",
+              color:"#558C89",
+              highlight: "#74AFAD",
               label: "Kitchen Week 5"
             },
             {
               value:kitchenArray[5],
-              color:"#F7464A",
-              highlight: "#FF5A5E",
+              color:"#558C89",
+              highlight: "#74AFAD",
               label: "Kitchen Week 6"
             },
             {
               value: kitchenArray[6],
-              color:"#F7464A",
-              highlight: "#FF5A5E",
+              color:"#558C89",
+              highlight: "#74AFAD",
               label: "Kitchen Week 7"
             },
             {
               value: kitchenArray[7],
-              color:"#F7464A",
-              highlight: "#FF5A5E",
+              color:"#558C89",
+              highlight: "#74AFAD",
               label: "Kitchen Week 8"
             },
             {
               value: kitchenArray[8],
-              color:"#F7464A",
-              highlight: "#FF5A5E",
+              color:"#558C89",
+              highlight: "#74AFAD",
               label: "Kitchen Week 9"
             },
             {
               value: kitchenArray[9],
-              color:"#F7464A",
-              highlight: "#FF5A5E",
+              color:"#558C89",
+              highlight: "#74AFAD",
               label: "Kitchen Week 10"
             },
             {
               value: kitchenArray[10],
-              color:"#F7464A",
-              highlight: "#FF5A5E",
+              color:"#558C89",
+              highlight: "#74AFAD",
               label: "Kitchen Week 11"
             }
             ];
@@ -987,9 +1014,9 @@ Template.body.events({
           datasets: [
           {
               label: "Social",
-              fillColor: "rgba(220,220,220,0.5)",
+              fillColor: "#D9853B",
               strokeColor: "rgba(220,220,220,0.8)",
-              highlightFill: "rgba(220,220,220,0.75)",
+              highlightFill: "#F2A45E",
               highlightStroke: "rgba(220,220,220,1)",
               data: [socialArray[0], socialArray[1],
               socialArray[2], socialArray[3],
@@ -999,10 +1026,10 @@ Template.body.events({
           },
           {
               label: "Kitchen",
-              fillColor: "rgba(220,220,220,0.5)",
+              fillColor: "#558C89",
               strokeColor: "rgba(220,220,220,0.8)",
               highlightFill: "rgba(220,220,220,0.75)",
-              highlightStroke: "rgba(220,220,220,1)",
+              highlightStroke: "#74AFAD",
               data: [kitchenArray[0], kitchenArray[1],
               kitchenArray[2], kitchenArray[3],
               kitchenArray[4], kitchenArray[5],
@@ -1026,11 +1053,11 @@ Template.body.events({
               {
                 label: "Social",
                 fillColor : "rgba(220,220,220,0.2)",
-                strokeColor : "rgba(220,220,220,1)",
-                pointColor : "rgba(220,220,220,1)",
+                strokeColor : "#D9853B",
+                pointColor : "#D9853B",
                 pointStrokeColor : "#fff",
                 pointHighlightFill : "#fff",
-                pointHighlightStroke : "rgba(220,220,220,1)",
+                pointHighlightStroke : "#F2A45E",
                 data : [socialArray[0], socialArray[1],
                   socialArray[2], socialArray[3],
                   socialArray[4], socialArray[5],
@@ -1041,11 +1068,11 @@ Template.body.events({
               {
                 label: "Kitchen",
                 fillColor : "rgba(220,220,220,0.2)",
-                strokeColor : "rgba(220,220,220,1)",
-                pointColor : "rgba(220,220,220,1)",
+                strokeColor : "#558C89",
+                pointColor : "#558C89",
                 pointStrokeColor : "#fff",
                 pointHighlightFill : "#fff",
-                pointHighlightStroke : "rgba(220,220,220,1)",
+                pointHighlightStroke : "#74AFAD",
                 data : [kitchenArray[0], kitchenArray[1],
                   kitchenArray[2], kitchenArray[3],
                   kitchenArray[4], kitchenArray[5],
@@ -1071,14 +1098,29 @@ Template.body.events({
     //Obtaining request types from user
     var thisHouse1 = document.getElementById("theChosenOne");
     var desiredHouse1 = thisHouse1.options[thisHouse1.selectedIndex].value;
+    if (desiredHouse1=="House 1"){
+      confirm("please specify the first house name");
+    }
     var thisHouse2 = document.getElementById("theChosenTwo");
     var desiredHouse2 = thisHouse2.options[thisHouse2.selectedIndex].value;
+    if (desiredHouse2=="House 2"){
+      confirm("please specify the second house name");
+    }
     var desiredExpense1 = document.getElementById("theExpenseType");
     var requestedExpenseBreakdown1 = desiredExpense1.options[desiredExpense1.selectedIndex].value;
+    if (requestedExpenseBreakdown1=="Expense Type"){
+      confirm("please specify the expense type");
+    }
     var currDesiredQuarter1 = document.getElementById("theChosenQuarter");
     var requestedQuarter1 = currDesiredQuarter1.options[currDesiredQuarter1.selectedIndex].value;
+    if (requestedQuarter1=="Quarter"){
+      confirm("please specify the quarter");
+    }
     var currDesiredGraph1 = document.getElementById("theChosenGraphType");
     var requestedGraphType1 = currDesiredGraph1.options[currDesiredGraph1.selectedIndex].value;
+    if (requestedGraphType1=="Graph Type"){
+      confirm("please specify the graph type");
+    }
     event.preventDefault();
         event.preventDefault();
     //Querying database for items
@@ -1134,8 +1176,8 @@ Template.body.events({
               kitchenArrayHouse2[8] + socialArrayHouse2[8] +
               kitchenArrayHouse2[9] + socialArrayHouse2[9] +
               kitchenArrayHouse2[10] + socialArrayHouse2[10],
-              color:"#F7464A",
-              highlight: "#FF5A5E",
+              color:"#558C89",
+              highlight: "#74AFAD",
               label: desiredHouse2
             },
             {
@@ -1150,8 +1192,8 @@ Template.body.events({
               kitchenArrayHouse1[8] + socialArrayHouse1[8] +
               kitchenArrayHouse1[9] + socialArrayHouse1[9] +
               kitchenArrayHouse1[10] + socialArrayHouse1[10],
-              color:"#F7464A",
-              highlight: "#FF5A5E",
+              color: "#D9853B",
+              highlight: "#F2A45E",
               label: desiredHouse1
             },
             ];
@@ -1165,9 +1207,9 @@ Template.body.events({
           datasets: [
           {
               label: desiredHouse1,
-              fillColor: "rgba(220,220,220,0.5)",
+              fillColor: "#558C89",
               strokeColor: "rgba(220,220,220,0.8)",
-              highlightFill: "rgba(220,220,220,0.75)",
+              highlightFill: "#74AFAD",
               highlightStroke: "rgba(220,220,220,1)",
               data: [kitchenArrayHouse1[0] + socialArrayHouse1[0], kitchenArrayHouse1[1] + socialArrayHouse1[1],
               kitchenArrayHouse1[2] + socialArrayHouse1[2], kitchenArrayHouse1[3] + socialArrayHouse1[3],
@@ -1177,9 +1219,9 @@ Template.body.events({
           },
           {
               label: desiredHouse2,
-              fillColor: "rgba(220,220,220,0.5)",
+              fillColor: "#D9853B",
               strokeColor: "rgba(220,220,220,0.8)",
-              highlightFill: "rgba(220,220,220,0.75)",
+              highlightFill:  "#F2A45E",
               highlightStroke: "rgba(220,220,220,1)",
               data: [kitchenArrayHouse2[0] + socialArrayHouse2[0], kitchenArrayHouse2[1] + socialArrayHouse2[1],
               kitchenArrayHouse2[2] + socialArrayHouse2[2], kitchenArrayHouse2[3] + socialArrayHouse2[3],
@@ -1201,11 +1243,11 @@ Template.body.events({
               {
                 label: desiredHouse1,
                 fillColor : "rgba(220,220,220,0.2)",
-                strokeColor : "rgba(220,220,220,1)",
-                pointColor : "rgba(220,220,220,1)",
+                strokeColor : "#558C89",
+                pointColor : "#558C89",
                 pointStrokeColor : "#fff",
                 pointHighlightFill : "#fff",
-                pointHighlightStroke : "rgba(220,220,220,1)",
+                pointHighlightStroke : "#74AFAD",
                 data : [kitchenArrayHouse1[0] + socialArrayHouse1[0], kitchenArrayHouse1[1] + socialArrayHouse1[1],
                   kitchenArrayHouse1[2] + socialArrayHouse1[2], kitchenArrayHouse1[3] + socialArrayHouse1[3],
                   kitchenArrayHouse1[4] + socialArrayHouse1[4], kitchenArrayHouse1[5] + socialArrayHouse1[5],
@@ -1216,11 +1258,11 @@ Template.body.events({
               {
                 label: desiredHouse2,
                 fillColor : "rgba(220,220,220,0.2)",
-                strokeColor : "rgba(220,220,220,1)",
-                pointColor : "rgba(220,220,220,1)",
+                strokeColor : "#D9853B",
+                pointColor : "#D9853B",
                 pointStrokeColor : "#fff",
                 pointHighlightFill : "#fff",
-                pointHighlightStroke : "rgba(220,220,220,1)",
+                pointHighlightStroke : "#F2A45E",
                 data : [kitchenArrayHouse2[0] + socialArrayHouse2[0], kitchenArrayHouse2[1] + socialArrayHouse2[1],
                   kitchenArrayHouse2[2] + socialArrayHouse2[2], kitchenArrayHouse2[3] + socialArrayHouse2[3],
                   kitchenArrayHouse2[4] + socialArrayHouse2[4], kitchenArrayHouse2[5] + socialArrayHouse2[5],
@@ -1253,8 +1295,8 @@ Template.body.events({
               kitchenArrayHouse2[8]+
               kitchenArrayHouse2[9]+
               kitchenArrayHouse2[10],
-              color:"#F7464A",
-              highlight: "#FF5A5E",
+              color:"#558C89",
+              highlight: "#74AFAD",
               label: desiredHouse2
             },
             {
@@ -1269,8 +1311,8 @@ Template.body.events({
               kitchenArrayHouse1[8]+
               kitchenArrayHouse1[9]+
               kitchenArrayHouse1[10],
-              color:"#F7464A",
-              highlight: "#FF5A5E",
+              color:"#D9853B",
+              highlight: "#F2A45E",
               label: desiredHouse1
             },
             ];
@@ -1285,9 +1327,9 @@ Template.body.events({
           datasets: [
           {
               label: desiredHouse1,
-              fillColor: "rgba(220,220,220,0.5)",
+              fillColor: "#558C89",
               strokeColor: "rgba(220,220,220,0.8)",
-              highlightFill: "rgba(220,220,220,0.75)",
+              highlightFill: "#74AFAD",
               highlightStroke: "rgba(220,220,220,1)",
               data: [kitchenArrayHouse1[0], kitchenArrayHouse1[1],
               kitchenArrayHouse1[2], kitchenArrayHouse1[3],
@@ -1297,9 +1339,9 @@ Template.body.events({
           },
           {
               label: desiredHouse2,
-              fillColor: "rgba(220,220,220,0.5)",
+              fillColor: "#D9853B",
               strokeColor: "rgba(220,220,220,0.8)",
-              highlightFill: "rgba(220,220,220,0.75)",
+              highlightFill: "#F2A45E",
               highlightStroke: "rgba(220,220,220,1)",
               data: [kitchenArrayHouse2[0], kitchenArrayHouse2[1],
               kitchenArrayHouse2[2], kitchenArrayHouse2[3] ,
@@ -1321,11 +1363,11 @@ Template.body.events({
               {
                 label: desiredHouse1,
                 fillColor : "rgba(220,220,220,0.2)",
-                strokeColor : "rgba(220,220,220,1)",
-                pointColor : "rgba(220,220,220,1)",
+                strokeColor : "#558C89",
+                pointColor : "#558C89",
                 pointStrokeColor : "#fff",
                 pointHighlightFill : "#fff",
-                pointHighlightStroke : "rgba(220,220,220,1)",
+                pointHighlightStroke : "#74AFAD",
                 data : [kitchenArrayHouse1[0], kitchenArrayHouse1[1],
               kitchenArrayHouse1[2], kitchenArrayHouse1[3],
               kitchenArrayHouse1[4], kitchenArrayHouse1[5],
@@ -1334,12 +1376,12 @@ Template.body.events({
               },
               {
                 label: desiredHouse2,
-                fillColor : "rgba(220,220,220,0.2)",
-                strokeColor : "rgba(220,220,220,1)",
+                fillColor : "#D9853B",
+                strokeColor : "#D9853B",
                 pointColor : "rgba(220,220,220,1)",
                 pointStrokeColor : "#fff",
                 pointHighlightFill : "#fff",
-                pointHighlightStroke : "rgba(220,220,220,1)",
+                pointHighlightStroke : "#F2A45E",
                 data : [kitchenArrayHouse2[0], kitchenArrayHouse2[1],
               kitchenArrayHouse2[2], kitchenArrayHouse2[3] ,
               kitchenArrayHouse2[4], kitchenArrayHouse2[5],
@@ -1371,8 +1413,8 @@ Template.body.events({
               socialArrayHouse2[8]+
               socialArrayHouse2[9]+
               socialArrayHouse2[10],
-              color:"#F7464A",
-              highlight: "#FF5A5E",
+              color:"#558C89",
+              highlight: "#74AFAD",
               label: desiredHouse2
             },
             {
@@ -1387,8 +1429,8 @@ Template.body.events({
               socialArrayHouse1[8]+
               socialArrayHouse1[9]+
               socialArrayHouse1[10],
-              color:"#F7464A",
-              highlight: "#FF5A5E",
+              color:"#D9853B",
+              highlight: "#F2A45E",
               label: desiredHouse1
             },
             ];
@@ -1402,9 +1444,9 @@ Template.body.events({
           datasets: [
           {
               label: desiredHouse1,
-              fillColor: "rgba(220,220,220,0.5)",
+              fillColor: "#558C89",
               strokeColor: "rgba(220,220,220,0.8)",
-              highlightFill: "rgba(220,220,220,0.75)",
+              highlightFill: "#74AFAD",
               highlightStroke: "rgba(220,220,220,1)",
               data: [socialArrayHouse1[0], socialArrayHouse1[1],
               socialArrayHouse1[2], socialArrayHouse1[3],
@@ -1414,9 +1456,9 @@ Template.body.events({
           },
           {
               label: desiredHouse2,
-              fillColor: "rgba(220,220,220,0.5)",
+              fillColor: "#D9853B",
               strokeColor: "rgba(220,220,220,0.8)",
-              highlightFill: "rgba(220,220,220,0.75)",
+              highlightFill: "#F2A45E",
               highlightStroke: "rgba(220,220,220,1)",
               data: [socialArrayHouse2[0], socialArrayHouse2[1],
               socialArrayHouse2[2], socialArrayHouse2[3] ,
@@ -1438,11 +1480,11 @@ Template.body.events({
               {
                 label: desiredHouse1,
                 fillColor : "rgba(220,220,220,0.2)",
-                strokeColor : "rgba(220,220,220,1)",
-                pointColor : "rgba(220,220,220,1)",
+                strokeColor : "#558C89",
+                pointColor : "#558C89",
                 pointStrokeColor : "#fff",
                 pointHighlightFill : "#fff",
-                pointHighlightStroke : "rgba(220,220,220,1)",
+                pointHighlightStroke : "#74AFAD",
                 data : [socialArrayHouse1[0], socialArrayHouse1[1],
               socialArrayHouse1[2], socialArrayHouse1[3],
               socialArrayHouse1[4], socialArrayHouse1[5],
@@ -1452,11 +1494,11 @@ Template.body.events({
               {
                 label: desiredHouse2,
                 fillColor : "rgba(220,220,220,0.2)",
-                strokeColor : "rgba(220,220,220,1)",
-                pointColor : "rgba(220,220,220,1)",
+                strokeColor : "#D9853B",
+                pointColor : "#D9853B",
                 pointStrokeColor : "#fff",
                 pointHighlightFill : "#fff",
-                pointHighlightStroke : "rgba(220,220,220,1)",
+                pointHighlightStroke : "#F2A45E",
                 data : [socialArrayHouse2[0], socialArrayHouse2[1],
               socialArrayHouse2[2], socialArrayHouse2[3] ,
               socialArrayHouse2[4], socialArrayHouse2[5],
@@ -1477,7 +1519,3 @@ Template.body.events({
 });
 
 }
-
-
-
-

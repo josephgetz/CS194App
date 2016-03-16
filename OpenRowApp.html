@@ -13,7 +13,7 @@
 
 <body>
 <div class="container">
-  <h2 style = "font-family: Impact">OpenRow</h2>
+  <h2>OpenRow</h2>
   <ul class="nav nav-tabs">
     <li class="active"><a data-toggle="tab" href="#home">Home</a></li>
     <li><a data-toggle="tab" href="#house_averages">House Average</a></li>
@@ -306,7 +306,7 @@
   </div>
 </div>
 
-	<div class="container">
+	<!--  <div class="container">
 	<header>
 		<h1>Read Data</h1>
 		<form class="new-task">
@@ -321,38 +321,37 @@
 	{{>chart}}
 	<form class="house-name">
 		<input type="text" name="text" placeholder="Enter house name" />
-		<!-- <canvas id="myChart" width="400" height="400"></canvas> -->
+		
 	</form>
 
 	<form class="week">
 		<input type="text" name="text" placeholder="Enter week" />
-		<!-- <canvas id="myChart" width="400" height="400"></canvas> -->
+		
 	</form>
 
 	<form class="chart-by-type">
 		<button>Chart by type</button>
-		<!-- <canvas id="myChart" width="400" height="400"></canvas> -->
+		
 	</form>
 	<form class="chart-by-week">
 		<button>Chart by week</button>
-		<!-- <canvas id="myChart" width="400" height="400"></canvas> -->
+		
 	</form>
 	<canvas id="myChart" width="400" height="400"></canvas>
 
 	<div id="container"></div>
-
-    <!-- <ul>
-      {{#each tasks}}
-        {{> task}}
-      {{/each}}
-
-      <script src="Chart.js"></script>
-
-    </ul> -->
-  </div>
+  </div> -->
 
 
 </body>
+
+<!-- <template name="task">
+	<li>{{text}}</li>
+</template>
+ -->
+<!-- <template name="chart">
+	Chart_
+</template> -->
 
 <!-- <body>
 	<script src="Chart.min.js"></script>
@@ -371,13 +370,3 @@
   	<!-- Include all compiled plugins (below), or include individual files as needed -->
   	<!-- // <script src="js/bootstrap.js"></script> -->
  
-<template name="task">
-	<li>{{text}}</li>
-</template>
-
-<template name="chart">
-	Chart_
-</template>
-
-
-
