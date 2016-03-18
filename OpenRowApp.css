@@ -82,7 +82,7 @@ ul {
 
 canvas{
   /*width: 50% !important;*/
-  max-width: 500px;
+  /*max-width: 500px;*/
   height: auto !important;
   padding-left: 0;
   padding-right: 0;
@@ -91,6 +91,26 @@ canvas{
   display: block;
   /*width: 800px;*/
   
+}
+
+#compareHouseChart{
+  width: 400;
+  height: 400;
+}
+
+#housePieChart{
+  width: 400;
+  height: 400;
+}
+
+#averageChart{
+  width: 400;
+  height: 400;
+}
+
+#individualHouseChart{
+  width: 400;
+  height: 400;
 }
 
 .delete {
